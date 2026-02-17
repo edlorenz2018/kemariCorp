@@ -1,0 +1,164 @@
+.aboutdet-section {
+  background-color: #060b13;
+  border-top-left-radius: 60px;
+  border-top-right-radius: 60px;
+
+  margin-top: -400px;
+
+  /* 🔥 PUSH EVERYTHING DOWN MORE */
+  padding: 430px 20px 100px;
+
+  color: #ffffff;
+  text-align: center;
+  font-family: "Segoe UI", sans-serif;
+
+  position: relative;
+  z-index: 3;
+
+  overflow: hidden;
+
+  transform: translateY(100vh);
+  transition: transform 1s ease;
+}
+
+.aboutdet-section.animate-up {
+  transform: translateY(0);
+}
+
+/* MISSION & VISION */
+.mission-vision-section {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  align-items: center;
+  width: 90vw;
+  margin: 0 auto;
+}
+
+.mission-box,
+.vision-box {
+  background-color: #0b1c2d;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 1000px;
+  text-align: center;
+  transition: transform 0.3s ease;
+}
+
+.mission-box:hover,
+.vision-box:hover {
+  transform: translateY(-10px);
+}
+
+.mission-vision-text {
+  padding: 25px;
+}
+
+.mission-vision-text h2 {
+  color: #ffffff;
+  font-size: 2rem;
+  margin-bottom: 15px;
+}
+
+.mission-vision-text p {
+  color: #ffffff;
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+/* TEAM SECTION */
+.team-section {
+  margin: 130px auto 0;
+  text-align: center;
+}
+
+.team-title {
+  font-size: 2rem;
+  margin-bottom: 0px;
+}
+
+.team-tagline {
+  opacity: 0.8;
+  margin-bottom: 40px;
+}
+
+/* TEAM GRID */
+.team-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 30px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.team-member {
+  background: rgba(255, 255, 255, 0.05);
+  padding: 20px;
+  border-radius: 16px;
+  text-align: center;
+
+  transform: translateY(20px);
+  opacity: 0;
+  animation: fadeUp 0.6s forwards;
+}
+
+.team-member img {
+  width: 100%;
+  aspect-ratio: 3/4;
+  object-fit: cover;
+  border-radius: 12px;
+  transition: transform 0.3s ease;
+}
+
+.team-member:hover img {
+  transform: scale(1.05);
+}
+
+.team-member h4 {
+  margin-top: 12px;
+  font-size: 14px;
+}
+
+.team-member p {
+  font-size: 12px;
+  opacity: 0.7;
+}
+
+/* Fade-Up Animation */
+@keyframes fadeUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Animation Delays */
+.team-member:nth-child(1) { animation-delay: 0s; }
+.team-member:nth-child(2) { animation-delay: 0.1s; }
+.team-member:nth-child(3) { animation-delay: 0.2s; }
+.team-member:nth-child(4) { animation-delay: 0.3s; }
+.team-member:nth-child(5) { animation-delay: 0.4s; }
+.team-member:nth-child(6) { animation-delay: 0.5s; }
+.team-member:nth-child(7) { animation-delay: 0.6s; }
+.team-member:nth-child(8) { animation-delay: 0.7s; }
+.team-member:nth-child(9) { animation-delay: 0.8s; }
+.team-member:nth-child(10) { animation-delay: 0.9s; }
+.team-member:nth-child(11) { animation-delay: 1s; }
+.team-member:nth-child(12) { animation-delay: 1.1s; }
+.team-member:nth-child(13) { animation-delay: 1.2s; }
+.team-member:nth-child(14) { animation-delay: 1.3s; }
+.team-member:nth-child(15) { animation-delay: 1.4s; }
+
+/* Responsive */
+@media (max-width: 768px) {
+  .aboutdet-section {
+    /* 🔥 ALSO PUSH DOWN MOBILE */
+    padding-top: 350px;
+  }
+
+  .team-grid {
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  }
+}

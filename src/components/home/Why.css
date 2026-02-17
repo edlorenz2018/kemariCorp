@@ -1,0 +1,228 @@
+/* ================= Experience Section ================= */
+.experience-section {
+  background: linear-gradient(180deg, #000000, #031324, #060b13);
+  color: white;
+  min-height: 100vh;
+  padding: 80px 20px;
+  font-family: "Poppins", sans-serif;
+}
+
+/* Title Gradient */
+.experience-title {
+  text-align: center;
+  font-size: 3rem;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+.experience-subtitle {
+  text-align: center;
+  font-size: 1rem;
+  color: #aaa;
+  margin-bottom: 50px;
+}
+
+/* ================= Feature Images ================= */
+.feature-images {
+  display: flex;
+  justify-content: center;
+  gap: 25px;
+  margin: 40px auto 90px;
+  max-width: 1100px;
+  flex-wrap: wrap;
+}
+
+/* Feature Card Styles */
+.feature-card {
+  width: 350px;
+  height: 455px;
+  border-radius: 18px;
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(10px);
+  box-shadow: 0px 10px 25px rgba(0, 0, 0, 0.5);
+  transition: 0.35s ease;
+
+  /* Fade-up animation */
+  opacity: 0;
+  transform: translateY(100px);
+  transition: all 0.9s ease-out;
+}
+
+.feature-card.animate {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.feature-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: 0.35s ease;
+}
+
+/* Hover iPhone premium vibe */
+.feature-card:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0px 0px 35px rgba(39, 217, 255, 0.35);
+}
+
+.feature-card:hover img {
+  transform: scale(1.08);
+}
+
+/* ================= Feature Description Paragraph ================= */
+.feature-description {
+  max-width: 1150px;
+  margin: -40px auto 70px;
+  text-align: center;
+  font-size: 1.05rem;
+  line-height: 1.8;
+  color: rgba(255, 255, 255, 0.85);
+  padding: 0 15px;
+}
+
+
+/* ================= Timeline Layout ================= */
+.timeline-container {
+  position: relative;
+  max-width: 1000px;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 60px;
+}
+
+/* Middle Timeline Line Gradient */
+.timeline-line {
+  position: absolute;
+  left: 50%;
+  top: 0;
+  width: 3px;
+  height: 100%;
+  transform: translateX(-50%);
+  border-radius: 10px;
+  background: linear-gradient(180deg, #0b0f2b, #1e3a8a, #1d9bf0, #27d9ff);
+  opacity: 0.8;
+}
+
+/* Timeline Items */
+.timeline-item {
+  position: relative;
+  width: 50%;
+  padding: 0 30px;
+}
+
+.timeline-item.left {
+  left: 0;
+  text-align: right;
+}
+
+.timeline-item.right {
+  left: 50%;
+  text-align: left;
+}
+
+/* Timeline Box */
+.timeline-box {
+  background: linear-gradient(135deg, #0b0f2b, #1e3a8a, #1d9bf0, #27d9ff);
+  padding: 22px;
+  border-radius: 15px;
+  box-shadow: 0px 0px 20px rgba(39, 217, 255, 0.25);
+  transition: 0.3s ease;
+  backdrop-filter: blur(8px);
+
+  opacity: 0;
+}
+
+/* Hover Effect */
+.timeline-box:hover {
+  transform: translateY(-6px);
+  box-shadow: 0px 0px 35px rgba(39, 217, 255, 0.55);
+}
+
+.timeline-box h3 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: 5px;
+  color: white;
+}
+
+.timeline-box p {
+  font-size: 0.95rem;
+  line-height: 1.5;
+  color: rgba(255, 255, 255, 0.92);
+}
+
+/* Timeline Dot */
+.timeline-dot {
+  position: absolute;
+  top: 25px;
+  width: 14px;
+  height: 14px;
+  background: #fff;
+  border-radius: 50%;
+  border: 3px solid #27d9ff;
+  box-shadow: 0px 0px 15px rgba(39, 217, 255, 0.6);
+}
+
+.timeline-item.left .timeline-dot {
+  right: -7px;
+}
+
+.timeline-item.right .timeline-dot {
+  left: -7px;
+}
+
+/* ================= Scroll Animation ================= */
+.timeline-item.left .timeline-box {
+  transform: translateX(50px);
+}
+
+.timeline-item.right .timeline-box {
+  transform: translateX(-50px);
+}
+
+.timeline-item.animate .timeline-box {
+  opacity: 1;
+  transform: translateX(0);
+  transition: all 1.2s ease-out;
+}
+
+/* ================= Responsive Mobile ================= */
+@media (max-width: 768px) {
+  .experience-title {
+    font-size: 2.3rem;
+  }
+
+  .timeline-line {
+    left: 20px;
+  }
+
+  .timeline-item {
+    width: 100%;
+    padding-left: 60px;
+    padding-right: 20px;
+    text-align: left;
+    left: 0 !important;
+  }
+
+  .timeline-item.left .timeline-box,
+  .timeline-item.right .timeline-box {
+    transform: translateX(-50px);
+  }
+
+  .timeline-dot {
+    left: 13px !important;
+    right: auto !important;
+  }
+
+  /* Feature cards responsive */
+  .feature-card {
+    width: 100%;
+    max-width: 320px;
+    height: 190px;
+  }
+}

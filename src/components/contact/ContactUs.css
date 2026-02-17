@@ -1,0 +1,181 @@
+.contact-section {
+  height: 100vh;
+
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  color: #ffffff;
+  font-family: "Poppins", sans-serif;
+  padding: 0 80px; /* Same as AboutUs */
+  position: relative;
+  overflow: hidden;
+}
+
+/* HERO CONTENT (Exact copy of AboutUs) */
+.contact-hero-content {
+  position: absolute;
+  inset: 0;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  max-width: 750px;
+  margin: auto;
+
+  z-index: 2;
+
+  transform: translateY(50px);
+}
+
+/* TITLE */
+.contact-hero-title {
+  font-size: 3.8rem;
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: -1px;
+  text-align: center;
+}
+
+/* DESCRIPTION */
+.contact-hero-description {
+  margin: 22px 0;
+  font-size: 0.9rem;
+  font-weight: 400;
+  line-height: 1.6;
+  opacity: 0.5;
+
+  max-width: 650px;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
+
+/* BUTTON */
+.contact-hero-btn {
+  padding: 14px 34px;
+  font-size: 1rem;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+
+  border-radius: 25px;
+  border: none;
+  background: rgba(255, 255, 255, 0.15);
+  color: white;
+  cursor: pointer;
+  backdrop-filter: blur(10px);
+
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.contact-hero-btn::after {
+  content: " →";
+  position: relative;
+  left: 0;
+  transition: left 0.3s ease;
+}
+
+.contact-hero-btn:hover::after {
+  left: 4px;
+}
+
+.contact-hero-btn:hover {
+  background: rgba(255, 255, 255, 0.28);
+  transform: translateY(-2px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.35);
+}
+
+/* ==============================
+   CONTACT CARDS
+   ============================== */
+.contact-cards {
+  display: flex;
+  gap: 30px;
+  flex-wrap: wrap;
+  justify-content: center;
+  position: relative;
+
+  transform: translateY(100vh);
+  transition: transform 1s ease;
+
+  z-index: 10;
+
+  margin-top: -170px;
+}
+
+.contact-cards.animate-up {
+  transform: translateY(0);
+}
+
+.contact-card {
+  background: #0b1c2d;
+  border-radius: 20px;
+  width: 280px;
+  padding: 30px 20px;
+  text-align: center;
+
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.contact-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6);
+}
+
+/* ICON STYLE */
+.icon {
+  margin-bottom: 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.icon-img {
+  width: 42px;
+  height: 42px;
+  object-fit: contain;
+}
+
+/* TEXT STYLE */
+.contact-card p {
+  font-size: 15px;
+  line-height: 1.7;
+  font-weight: 400;
+  color: #e6e6e6;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  .contact-hero-title {
+    font-size: 2.4rem;
+  }
+
+  .contact-card {
+    width: 100%;
+    max-width: 320px;
+  }
+
+  .contact-cards {
+    margin-top: -120px;
+    gap: 20px;
+  }
+
+  .icon-img {
+    width: 38px;
+    height: 38px;
+  }
+
+  .contact-card p {
+    font-size: 14px;
+  }
+}

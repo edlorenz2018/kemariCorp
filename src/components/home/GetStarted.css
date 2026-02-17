@@ -1,0 +1,273 @@
+/* ============================= */
+/* GET STARTED FULLSCREEN OVERLAY */
+/* ============================= */
+.getstarted-overlay {
+  position: fixed; 
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 999;
+
+  background: transparent; 
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding-top: 80px;
+  padding-left: 0;   
+  padding-right: 0;
+}
+
+.close-getstarted {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+
+  width: auto;
+  height: auto;
+  border-radius: 0; /* no circle */
+  background: transparent; /* no background */
+  border: none; /* no border */
+  color: white;
+  font-size: 28px; /* bigger X */
+  font-weight: 600;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  opacity: 0.6;
+
+  cursor: pointer;
+  transition: transform 0.25s ease, opacity 0.25s ease;
+  z-index: 1000;
+}
+
+.close-getstarted:hover {
+  transform: scale(1.2);
+  opacity: 1;
+  color: white;
+  background: transparent; /* ensures no background on hover */
+}
+
+
+/* ============================= */
+/* WRAPPER FOR OUTSIDE BUTTONS   */
+/* ============================= */
+.getstarted-wrapper {
+  position: relative;
+  width: 100%;
+}
+
+/* ============================= */
+/* OUTSIDE LEFT/RIGHT NAV BUTTONS*/
+/* ============================= */
+.getstarted-nav-outside {
+  position: absolute;
+  bottom: 0; 
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 20px;
+  z-index: 10;
+  opacity: 0.6;
+}
+
+.getstarted-nav-outside button {
+  width: auto;
+  height: auto;
+  border-radius: 0; /* removed circle */
+  background: transparent; /* removed background */
+  border: none; /* removed border */
+  color: white;
+  font-size: 28px; /* bigger arrows */
+  font-weight: 600;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  cursor: pointer;
+  transition: transform 0.25s ease, color 0.25s ease;
+}
+
+.getstarted-nav-outside button:hover:not(.disabled) {
+  color: #00bcd4; /* optional hover color */
+  transform: scale(1.2);
+}
+
+.getstarted-nav-outside button.disabled {
+  opacity: 0.4;
+  cursor: default;
+  transform: none;
+}
+
+/* ============================= */
+/* GET STARTED CONTAINER          */
+/* ============================= */
+.getstarted-container {
+  width: 100%;
+  height: calc(100vh - 100px);
+
+  display: flex;
+  flex-direction: row;
+  gap: 0;
+  overflow-x: auto;
+  overflow-y: hidden;
+
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+
+  background: transparent;
+  padding: 0;
+}
+
+/* hide scrollbar */
+.getstarted-container::-webkit-scrollbar {
+  display: none;
+}
+.getstarted-container {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* ============================= */
+/* INDIVIDUAL RECTANGLE SECTIONS */
+/* ============================= */
+.getstarted-section {
+  flex: 0 0 100%;
+  max-width: 1200px;
+  height: 90%;
+
+  background: rgba(0, 0, 0, 0.5);
+  border-radius: 25px;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+
+  padding: 50px;
+  margin: 0 10px;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
+
+  scroll-snap-align: start;
+
+  position: relative;
+  overflow: hidden;
+
+  transition: all 0.3s ease;
+}
+
+/* dark gradient overlay inside rectangle */
+.getstarted-section::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 0.75),
+    rgba(0, 0, 0, 0.15)
+  );
+  z-index: 0;
+}
+
+/* ============================= */
+/* TEXT INSIDE RECTANGLE          */
+/* ============================= */
+.section-text {
+  max-width: 500px;
+  color: white;
+  font-family: "Poppins", sans-serif;
+  padding: 25px 30px;
+  border-radius: 16px;
+
+  transform: translate(0, 20px);
+  position: relative;
+  z-index: 2;
+
+  text-align: left; /* ✅ add this */
+}
+
+
+.section-text h2 {
+  font-size: 50px;
+  font-weight: 800;
+  margin-bottom: 15px;
+  line-height: 1.1;
+}
+
+.section-text p {
+  font-size: 18px;
+  font-weight: 300;
+  color: rgba(255, 255, 255, 0.75);
+  line-height: 1.6;
+}
+
+/* BUTTON */
+.section-btn {
+  margin-top: 20px;
+
+  padding: 14px 34px;
+  font-size: 1rem;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+
+  border-radius: 25px;
+  border: none;
+  background: rgba(255, 255, 255, 0.15);
+  color: white;
+  cursor: pointer;
+  backdrop-filter: blur(10px);
+
+  transition: all 0.3s ease;
+}
+
+.section-btn:hover {
+  background: rgba(255, 255, 255, 0.28);
+  transform: translateY(-2px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.35);
+}
+
+/* ============================= */
+/* THUMBNAIL CAROUSEL            */
+/* ============================= */
+.getstarted-thumbnail-carousel {
+  display: flex;
+  gap: 15px;
+  align-items: flex-end;
+
+  transform: translate(20px, 20px);
+  position: relative;
+  z-index: 2;
+}
+
+.getstarted-thumbnail {
+  width: 150px;
+  height: 32vh;
+
+  background-size: cover;
+  background-position: center;
+  border-radius: 14px;
+
+  cursor: pointer;
+  opacity: 0.7;
+  border: 2px solid transparent;
+
+  transition: all 0.3s ease;
+}
+
+.getstarted-thumbnail:hover {
+  opacity: 1;
+  transform: scale(1.05);
+}
+
+.getstarted-thumbnail.active {
+  border: 2px solid white;
+  opacity: 1;
+}
+
+/* ============================= */
+/* SLIDE-IN ANIMATION FOR SECTIONS*/
+/* ============================= */
+.getstarted-section.slide-in {
+  transform: translateY(0);
+  opacity: 1;
+}
