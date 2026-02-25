@@ -1,9 +1,10 @@
+/* ===================== CONTACT FORM SECTION ===================== */
 .contact-form-section {
   background-color: #060b13;
   border-top-left-radius: 60px;
   border-top-right-radius: 60px;
 
-  margin-top: -400px;
+  margin-top: -500px;
   padding: 120px 20px 0;
 
   color: #ffffff;
@@ -12,13 +13,9 @@
 
   position: relative;
   z-index: 3;
+  overflow: visible; /* allow cards to break out */
 
-  /* IMPORTANT */
-  overflow: hidden;
-
-  /* FIXED section height */
-  height: 200vh;
-
+  height: 164vh;
   transform: translateY(100vh);
   transition: transform 1s ease;
 }
@@ -27,9 +24,73 @@
   transform: translateY(0);
 }
 
-/* ==============================
-   FORM TITLE & SUBTITLE
-   ============================== */
+.formdiv{
+  margin-top: -240px;
+}
+
+/* ===================== CONTACT CARDS ===================== */
+.contact-cards-form {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  flex-wrap: wrap;
+  margin-bottom: 60px;
+
+  /* pull cards above section */
+  margin-top: -150px; 
+  transform: translateY(50px);
+  opacity: 0;
+  transition: transform 1s ease, opacity 1s ease;
+  z-index: 10; /* overlay on top */
+  position: relative;
+}
+
+.contact-cards-form.animate-up {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+/* Individual cards */
+.contact-cards-form .contact-card {
+  background: #0b1c2d;
+  border-radius: 20px;
+  width: 280px;
+  padding: 30px 20px;
+  text-align: center;
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.6);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  position: relative;
+  z-index: 11; /* each card above other content */
+}
+
+.contact-cards-form .contact-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.7);
+}
+
+/* ICON STYLE */
+.contact-cards-form .icon {
+  margin-bottom: 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.contact-cards-form .icon-img {
+  width: 42px;
+  height: 42px;
+  object-fit: contain;
+}
+
+/* TEXT STYLE */
+.contact-cards-form .contact-card p {
+  font-size: 15px;
+  line-height: 1.7;
+  font-weight: 400;
+  color: #e6e6e6;
+}
+
+/* ===================== FORM TITLE & SUBTITLE ===================== */
 .form-title {
   font-size: 32px;
   margin-bottom: 10px;
@@ -42,24 +103,17 @@
   margin: 0 auto 40px;
 }
 
-/* ==============================
-   FORM WRAPPER
-   ============================== */
-/* FORM WRAPPER */
+/* ===================== FORM WRAPPER ===================== */
 .form-wrapper {
   display: flex;
   justify-content: center;
   position: relative;
-
   z-index: 5;
 
-  /* Increase width */
-  width: 100%;      /* full width */
-  max-width: 900px; /* new max width */
-  margin: 0 auto;   /* center the wrapper */
-
-  /* You can change this height freely */
-  height: 102vh;
+  width: 100%;
+  max-width: 900px;
+  margin: 0 auto;
+  height: 85vh;
 }
 
 /* FORM STYLING */
@@ -67,16 +121,12 @@
   background: #0b1c2d;
   border-radius: 20px;
   padding: 50px;
-
-  width: 100%;        /* full width of wrapper */
-  max-width: 1000px;  /* increase max-width */
-
+  width: 100%;
+  max-width: 1000px;
   box-shadow: 0 25px 60px rgba(0, 0, 0, 0.6);
   position: relative;
-
   height: 100%;
 }
-
 
 .form-row {
   display: flex;
@@ -116,9 +166,7 @@ textarea {
   resize: none;
 }
 
-/* ==============================
-   BUTTON STYLING
-   ============================== */
+/* ===================== BUTTON ===================== */
 .send-btn {
   background: rgba(255, 255, 255, 0.15);
   color: #ffffff;
@@ -135,17 +183,13 @@ textarea {
   transform: translateY(-2px);
 }
 
-/* ==============================
-   MAP CONTAINER (FIXED POSITION)
-   ============================== */
+/* ===================== MAP ===================== */
 .map-container {
   position: absolute;
   bottom: 0;
   left: 0;
-
   width: 100%;
   height: 400px;
-
   z-index: 1;
 }
 
@@ -154,4 +198,30 @@ textarea {
   height: 100%;
   border: none;
   display: block;
+}
+
+/* ===================== RESPONSIVE ===================== */
+@media (max-width: 768px) {
+  .contact-cards-form {
+    margin-bottom: 40px;
+    gap: 20px;
+  }
+
+  .contact-cards-form .contact-card {
+    width: 100%;
+    max-width: 320px;
+  }
+
+  .contact-cards-form .icon-img {
+    width: 38px;
+    height: 38px;
+  }
+
+  .contact-cards-form .contact-card p {
+    font-size: 14px;
+  }
+
+  .form-group.full textarea {
+    min-height: 250px;
+  }
 }

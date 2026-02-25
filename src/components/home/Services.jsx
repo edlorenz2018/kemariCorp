@@ -1,13 +1,13 @@
 import { useState, useEffect, useRef } from "react";
 import "./Services.css";
 
-import intercomImg from "../../assets/feature1.png";
-import cctvImg from "../../assets/feature2.png";
-import cablingImg from "../../assets/feature3.png";
-import catvImg from "../../assets/feature1.png";
-import pagingImg from "../../assets/feature2.png";
-import fireImg from "../../assets/feature3.png";
-import wifiImg from "../../assets/feature2.png";
+import intercomImg from "../../assets/projectsimgs/internationCollege.png";
+import cctvImg from "../../assets/projectsimgs/llcdorm.png";
+import cablingImg from "../../assets/projectsimgs/llcAdmin.png";
+import catvImg from "../../assets/projectsimgs/northwood.png";
+import pagingImg from "../../assets/projectsimgs/cabadbaranGaisano.png";
+import fireImg from "../../assets/projectsimgs/internationCollege.png";
+import wifiImg from "../../assets/projectsimgs/internationCollege.png";
 
 import ViewWork from "./ViewWork"; // ✅ adjust path if needed
 
@@ -25,8 +25,7 @@ function Services() {
   const [index, setIndex] = useState(2);
   const [visible, setVisible] = useState(false);
   const [paused, setPaused] = useState(false);
-
-  const [showViewWork, setShowViewWork] = useState(false); // ✅ NEW
+  const [showViewWork, setShowViewWork] = useState(false); 
 
   const sectionRef = useRef(null);
 
@@ -56,7 +55,6 @@ function Services() {
   /* Auto-slide */
   useEffect(() => {
     if (!visible || paused || showViewWork) return;
-
     const interval = setInterval(next, 2500);
     return () => clearInterval(interval);
   }, [visible, paused, showViewWork]);
@@ -66,7 +64,6 @@ function Services() {
       <div className={`services-inner ${visible ? "show" : ""}`}>
         <h2 className="services-title">Step Inside the Projects We've Created</h2>
 
-       
         {!showViewWork ? (
           <div className="carousel">
             <button className="services-nav left" onClick={prev}>
@@ -98,7 +95,10 @@ function Services() {
                   <div
                     key={i}
                     className={`card ${offset === 0 ? "active" : ""}`}
-                    onClick={() => setIndex(i)}
+                    onClick={() => {
+                      if (offset === 0) setShowViewWork(true);
+                      else setIndex(i);
+                    }}
                     style={{
                       backgroundImage: `url(${service.image})`,
                       transform: `translateX(${xPos}px) scale(${scale})`,
@@ -107,6 +107,7 @@ function Services() {
                       pointerEvents: opacity === 0 ? "none" : "auto",
                       width: "300px",
                       height: "330px",
+                      cursor: "pointer", // ✅ pointer for all cards
                     }}
                     onMouseEnter={() => {
                       if (offset === 0) setPaused(true);
@@ -117,16 +118,6 @@ function Services() {
                   >
                     <div className="card-overlay">
                       <p>{service.title}</p>
-
-                      {offset === 0 && (
-                        <button
-                          className="card-arrow-only"
-                          onClick={(e) => {
-                            e.stopPropagation();
-                            setShowViewWork(true); // ✅ switch to viewwork rectangle
-                          }}
-                        />
-                      )}
                     </div>
                   </div>
                 );

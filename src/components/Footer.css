@@ -2,7 +2,8 @@
 .footer {
   background: linear-gradient(to right, #0b0f14, #101821);
   color: #cfd6e1;
-  padding: 28px 0;
+  padding: 20px 0; /* slightly reduced for a compact look */
+  font-family: "Poppins", sans-serif;
 }
 
 /* CONTAINER */
@@ -13,7 +14,7 @@
   padding: 0 30px;
   display: flex;
   justify-content: space-between;
-  align-items: flex-start;
+  align-items: center; /* center content vertically */
   gap: 50px;
 }
 
@@ -26,6 +27,7 @@
 
 .footer-logo {
   width: 120px;
+  height: auto; /* maintain aspect ratio */
 }
 
 .footer-company {
@@ -82,7 +84,7 @@
   white-space: nowrap;
 }
 
-/* ICON COLORS (if you want to add svg icons later) */
+/* ICON COLORS (if using SVG icons) */
 .footer-item svg {
   width: 16px;
   height: 16px;
@@ -94,7 +96,7 @@
 @media screen and (max-width: 900px) {
   .footer-container {
     flex-direction: column;
-    align-items: flex-start;
+    align-items: center; /* center content on smaller screens */
     gap: 20px;
   }
 
@@ -116,6 +118,7 @@
 
   .footer-right {
     grid-template-columns: 1fr;
+    row-gap: 10px;
   }
 
   .footer-item.location,

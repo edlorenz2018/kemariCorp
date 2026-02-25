@@ -10,6 +10,7 @@ import { Contact } from './pages/Contact';
 function App() {
 
   return(
+    
     <Router>
       <ScrollToTop />
       <Routes>

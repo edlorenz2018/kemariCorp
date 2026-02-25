@@ -1,9 +1,9 @@
 import { useEffect, useRef } from "react";
 import "./Why.css";
 
-import feature1 from "../../assets/feature1.png";
-import feature2 from "../../assets/feature2.png";
-import feature3 from "../../assets/feature3.png";
+import feature1 from "../../assets/featuredimgs/featured3.png"; 
+import feature2 from "../../assets/featuredimgs/featured1.png"; 
+import feature3 from "../../assets/featuredimgs/featured2.png"; 
 
 function Why() {
   const timelineRef = useRef([]);
@@ -15,19 +15,20 @@ function Why() {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
             entry.target.classList.add("animate");
+            observer.unobserve(entry.target); // stop observing after reveal
           }
         });
       },
-      { threshold: 0.3 }
+      { threshold: 0 } // <-- start animation immediately even if a tiny part is visible
     );
-
-    // Observe timeline items
-    timelineRef.current.forEach((el) => {
-      if (el) observer.observe(el);
-    });
 
     // Observe feature cards
     featureRef.current.forEach((el) => {
+      if (el) observer.observe(el);
+    });
+
+    // Observe timeline items
+    timelineRef.current.forEach((el) => {
       if (el) observer.observe(el);
     });
 
@@ -65,23 +66,11 @@ function Why() {
 
       {/* ================= Paragraph Below Feature Images ================= */}
       <p className="feature-description">
-        Kemari is a systems integration company focused on building strong and
-        dependable technology infrastructures for businesses and institutions.
-        We work behind the scenes to ensure environments are secure, organized,
-        and technically sound. 
-        Our role is to provide structured, well-planned installations that
-        support daily operations and long-term growth. Every project is
-        approached with careful planning and technical discipline to ensure
-        systems function smoothly within their intended environment. 
-        At Kemari, we understand that modern operations rely on stable and
-        properly implemented systems — and we are committed to delivering that
-        foundation.
+        At Kemari, we specialize in creating reliable and efficient technology solutions that help organizations operate seamlessly. From advanced security setups to communication networks and structured cabling, our team ensures every installation is meticulously planned and executed. We aim to provide environments where systems are intuitive, stable, and supportive of day-to-day operations as well as future growth. With attention to detail and a commitment to quality, we deliver solutions that let your organization focus on what matters most, confident that your infrastructure is robust and dependable.
       </p>
 
       <h2 className="experience-title">Why Choose Us?</h2>
-      <p className="experience-subtitle">
-        {/*Trusted solutions, modern technology, and a team that delivers.*/}
-      </p>
+      <p className="experience-subtitle"></p>
 
       {/* ================= Timeline ================= */}
       <div className="timeline-container">

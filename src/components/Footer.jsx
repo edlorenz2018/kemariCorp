@@ -1,5 +1,5 @@
 import "./Footer.css";
-import logo from "../assets/kemarilogo.png"; // adjust path if needed
+import logo from "../assets/kemarilogohero.png"; // adjust path if needed
 
 function Footer() {
   return (

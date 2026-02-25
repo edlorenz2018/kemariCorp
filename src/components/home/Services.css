@@ -1,29 +1,22 @@
 .services {
   height: 85vh;
-  background-color: #060b13;
- 
+  background-color: black;
   color: white;
   display: flex;
   align-items: center;
   justify-content: center;
   overflow: hidden;
-
   position: relative;
 }
-
-
 
 .services-inner {
   width: 100%;
   max-width: 1600px;
-
   padding: 0px 0 40px 0;
-
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
-
   position: relative;
   z-index: 2;
 }
@@ -70,8 +63,6 @@
   background-position: center;
   box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5);
   overflow: hidden;
-  
-
   transform: translateX(0) scale(0.8);
   transition: transform 1.2s ease, opacity 1.2s ease;
 }
@@ -124,36 +115,6 @@
   text-shadow: 0 4px 12px rgba(0, 0, 0, 0.85);
 }
 
-/* Arrow button on top-right, no background */
-.card-arrow-only {
-  position: absolute;
-  top: 0px;
-  right: 15px;
-  background: none;
-  border: none;
-  color: white;
-  font-size: 1.7rem;
-  font-weight: 10;
-  opacity: 0.6;
-  cursor: pointer;
-  z-index: 3;
-  transition: all 0.3s ease;
-  padding: 0;
-}
-
-/* Arrow symbol */
-.card-arrow-only::after {
-  content: "→";
-  display: inline-block;
-  transition: transform 0.3s ease;
-  
-}
-
-/* Hover effect */
-.card-arrow-only:hover::after {
-  transform: translateX(4px);
-}
-
 /* Navigation */
 .services-nav {
   background: none;
@@ -162,15 +123,12 @@
   font-size: 44px;
   cursor: pointer;
   z-index: 20;
-
   padding: 0;
   width: 55px;
   height: 55px;
-
   display: flex;
   align-items: center;
   justify-content: center;
-
   opacity: 0.7;
   transition: transform 0.3s ease, opacity 0.3s ease;
 }
@@ -196,7 +154,6 @@
   position: absolute;
   right: 55px;
 }
-
 
 /* Responsive */
 @media (max-width: 1024px) {
@@ -231,8 +188,9 @@
     height: 300px;
   }
 
-  .nav {
+  .services-nav {
     font-size: 36px;
-    padding: 50px 40px;
+    width: 45px;
+    height: 45px;
   }
 }

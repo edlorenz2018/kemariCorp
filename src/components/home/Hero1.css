@@ -1,4 +1,4 @@
-.aboutus-hero {
+.hero-simple {
   position: relative;
   height: 100vh;
   width: 100%;
@@ -6,7 +6,8 @@
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  background-attachment: fixed;
+  background-attachment: fixed; /* <-- makes it fixed during scroll */
+
 
   transition: background-image 1s ease-in-out;
 
@@ -15,15 +16,15 @@
   align-items: center;
 }
 
-/* 🔥 Dark overlay to make text visible */
-.aboutus-overlay {
+/* 🔥 Dark overlay */
+.hero-overlay {
   position: absolute;
   inset: 0;
   background: rgba(0, 0, 0, 0.90);
 }
 
-/* Logo above overlay */
-.aboutus-logo {
+/* keep logo above overlay */
+.hero-logo {
   position: relative;
   width: 540px;
   height: auto;

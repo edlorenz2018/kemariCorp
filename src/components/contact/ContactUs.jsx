@@ -1,66 +1,48 @@
+// ContactUsHero.jsx
 import { useEffect, useState } from "react";
 import "./ContactUs.css";
-import bgImg from "../../assets/kemaribuilding.png";
-import pinIcon from "../../assets/pin.png"; 
-import emIcon from "../../assets/email.png"; 
-import teIcon from "../../assets/telephone.png"; 
 
-const ContactUs = () => {
-  const [isVisible, setIsVisible] = useState(false);
+import bg1 from "../../assets/featuredimgs/highlights1.png"; 
+import bg2 from "../../assets/featuredimgs/highlights2.png"; 
+import bg3 from "../../assets/featuredimgs/highlights3.png"; 
+import bg4 from "../../assets/featuredimgs/highlights4.png"; 
 
+import companyLogo from "../../assets/kemarilogohero.png";
+
+function ContactUsHero() {
+  const rawImages = [bg1, bg2, bg3, bg4];
+  const images = rawImages.filter(Boolean);
+
+  const [currentIndex, setCurrentIndex] = useState(0);
+
+  // Preload images
   useEffect(() => {
-    setIsVisible(true);
-  }, []);
+    images.forEach((img) => {
+      const image = new Image();
+      image.src = img;
+    });
+  }, [images]);
+
+  // Carousel effect
+  useEffect(() => {
+    if (images.length === 0) return;
+
+    const interval = setInterval(() => {
+      setCurrentIndex((prev) => (prev + 1) % images.length);
+    }, 5000);
+
+    return () => clearInterval(interval);
+  }, [images]);
 
   return (
     <section
-      className="contact-section"
-      id="contact"
-      style={{ backgroundImage: `url(${bgImg})` }}
+      className="contactus-hero"
+      style={images.length ? { backgroundImage: `url(${images[currentIndex]})` } : {}}
     >
-      {/* HERO CONTENT (Exact copy of AboutUs) */}
-      <div className="contact-hero-content">
-        <div className="contact-hero-title">
-          We Build Dependable <br />
-          Technology you can trust
-        </div>
-
-        <p className="contact-hero-description">
-          DESIGN, LAYOUTS, CCTV, PABX SYSTEM, STRUCTURED CABLING, ALL AUXILIARY
-          WORKS.
-        </p>
-
-        <button className="contact-hero-btn">Get Started</button>
-      </div>
-
-      {/* CONTACT CARDS */}
-      <div className={`contact-cards ${isVisible ? "animate-up" : ""}`}>
-        <div className="contact-card">
-          <div className="icon">
-            <img src={pinIcon} alt="Location" className="icon-img" />
-          </div>
-          <p>
-            3rd Floor Legaspi Commercial <br />
-            Bldg, Tunghaan Minglanilla, Cebu.
-          </p>
-        </div>
-
-        <div className="contact-card">
-          <div className="icon">
-            <img src={emIcon} alt="Email" className="icon-img" />
-          </div>
-          <p>kemari.hr@gmail.com</p>
-        </div>
-
-        <div className="contact-card">
-          <div className="icon">
-            <img src={teIcon} alt="Phone" className="icon-img" />
-          </div>
-          <p>(032) - 384 - 3804</p>
-        </div>
-      </div>
+      <div className="contactus-overlay"></div>
+      <img src={companyLogo} alt="Logo" className="contactus-logo" />
     </section>
   );
-};
+}
 
-export default ContactUs;
+export default ContactUsHero;

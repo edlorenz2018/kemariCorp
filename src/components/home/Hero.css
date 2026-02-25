@@ -2,6 +2,7 @@
   height: 100vh;
   background-size: cover;
   background-position: center;
+  background-attachment: fixed; /* <-- makes it fixed during scroll */
   position: relative;
 
   display: flex;
@@ -16,11 +17,26 @@
   overflow: hidden;
 }
 
+.hero-dark-overlay {
+  position: absolute;
+  inset: 0;
+
+  background:
+    linear-gradient(
+      to bottom,
+      rgba(0, 0, 0, 1) 0%,   /* pure black at very top */
+      rgba(0, 0, 0, 0.90) 8%, /* fades quickly */
+      rgba(0, 0, 0, 0.90) 100%
+    );
+
+  z-index: 0;
+}
+
 
 .hero-content {
   position: relative;
-  max-width: 750px;
-  z-index: 2;
+  max-width: 930px;
+  z-index: 0; /* above dark overlay and gradient */
 
   transform: translateY(50px);
 }
@@ -36,7 +52,7 @@
 /* Description */
 .hero-description {
   margin: 22px 0;
-  font-size: 0.9rem;
+  font-size: 1.1rem;
   font-weight: 400;
   line-height: 1.6;
   opacity: 0.5;
@@ -76,7 +92,7 @@
 }
 
 .hero-btn:hover {
-  background: rgba(255, 255, 255, 0.28);
+  background: linear-gradient(135deg, #0b0f2b, #1e3a8a, #1d9bf0, #27d9ff);
   transform: translateY(-2px);
   box-shadow: 0 12px 30px rgba(0, 0, 0, 0.35);
 }
@@ -88,7 +104,6 @@
 .getstarted-overlay {
   position: absolute;
   inset: 0;
-  z-index: 999;
 
   background: rgba(0, 0, 0, 0.75);
   backdrop-filter: blur(12px);
@@ -118,10 +133,15 @@
 
   cursor: pointer;
   transition: 0.3s ease;
-  z-index: 1000;
+  z-index: 0;
 }
 
 .close-getstarted:hover {
   background: rgba(255, 255, 255, 0.3);
   transform: scale(1.08);
+}
+
+/* Fix scroll position because header is fixed */
+#hero-section {
+  scroll-margin-top: 70px; /* header is 60px */
 }

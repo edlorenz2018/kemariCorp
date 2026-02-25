@@ -1,47 +1,47 @@
 import { useEffect, useState } from "react";
 import "./AboutUs.css";
-import bgImg from "../../assets/kemaribuilding.png";
 
-const AboutUs = () => {
-  const [isVisible, setIsVisible] = useState(false);
+import bg1 from "../../assets/featuredimgs/highlights1.png"; 
+import bg2 from "../../assets/featuredimgs/highlights2.png"; 
+import bg3 from "../../assets/featuredimgs/highlights3.png"; 
+import bg4 from "../../assets/featuredimgs/highlights4.png"; 
 
+import companyLogo from "../../assets/kemarilogohero.png";
+
+function AboutUs() {
+  const rawImages = [bg1, bg2, bg3, bg4];
+  const images = rawImages.filter(Boolean);
+
+  const [currentIndex, setCurrentIndex] = useState(0);
+
+  // Preload images
   useEffect(() => {
-    setIsVisible(true);
-  }, []);
+    images.forEach((img) => {
+      const image = new Image();
+      image.src = img;
+    });
+  }, [images]);
+
+  // Carousel effect
+  useEffect(() => {
+    if (images.length === 0) return;
+
+    const interval = setInterval(() => {
+      setCurrentIndex((prev) => (prev + 1) % images.length);
+    }, 5000);
+
+    return () => clearInterval(interval);
+  }, [images]);
 
   return (
     <section
-      className="about-section"
-      id="about"
-      style={{ backgroundImage: `url(${bgImg})` }}
+      className="aboutus-hero"
+      style={images.length ? { backgroundImage: `url(${images[currentIndex]})` } : {}}
     >
-      {/* HERO CONTENT (same style/position as Hero.jsx) */}
-      <div className="about-hero-content">
-        <div className="about-hero-title">
-          We Build Dependable <br />
-          Technology you can trust
-        </div>
-
-        <p className="about-hero-description">
-          DESIGN, LAYOUTS, CCTV, PABX SYSTEM, STRUCTURED CABLING, ALL AUXILIARY
-          WORKS.
-        </p>
-
-        <button className="about-hero-btn">Get Started</button>
-      </div>
-
-      {/* ABOUT CARDS (no changes) */}
-      <div className={`about-cards ${isVisible ? "animate-up" : ""}`}>
-        <div className="about-card">
-          {/* CONTENT HERE */}
-        </div>
-
-        <div className="about-card">
-          {/* CONTENT HERE */}
-        </div>
-      </div>
+      <div className="aboutus-overlay"></div>
+      <img src={companyLogo} alt="Logo" className="aboutus-logo" />
     </section>
   );
-};
+}
 
 export default AboutUs;

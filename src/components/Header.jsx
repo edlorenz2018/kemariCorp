@@ -1,11 +1,11 @@
 import "./Header.css";
-import logo from "../assets/kemarilogo.png";
-import { NavLink, useLocation } from "react-router-dom";
+import logo from "../assets/kemarilogohero.png";
+import { NavLink, useLocation, useNavigate } from "react-router-dom";
 
 function Header() {
   const location = useLocation();
+  const navigate = useNavigate();
 
-  // Home should stay active on / and /view
   const isHomeActive =
     location.pathname === "/" || location.pathname.startsWith("/view");
 
@@ -24,21 +24,35 @@ function Header() {
         </NavLink>
 
         <NavLink
-          to="/about"
+          to="/About"
           className={({ isActive }) => (isActive ? "active" : "")}
         >
           About Us
         </NavLink>
 
         <NavLink
-          to="/contact"
+          to="/Contact"
           className={({ isActive }) => (isActive ? "active" : "")}
         >
           Contact Us
         </NavLink>
       </nav>
 
-      <button className="header-btn">Get Started</button>
+      <button
+        className="header-btn"
+        onClick={() => {
+          if (location.pathname !== "/") {
+            navigate("/#hero-section");
+          } else {
+            const hero = document.getElementById("hero-section");
+            if (hero) {
+              hero.scrollIntoView({ behavior: "smooth" });
+            }
+          }
+        }}
+      >
+        Get Started
+      </button>
     </header>
   );
 }
