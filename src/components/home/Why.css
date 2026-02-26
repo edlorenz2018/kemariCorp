@@ -7,7 +7,7 @@
   font-family: "Poppins", sans-serif;
 }
 
-/* Title Gradient */
+/* ================= Title ================= */
 .experience-title {
   text-align: center;
   font-size: 3rem;
@@ -32,7 +32,6 @@
   flex-wrap: wrap;
 }
 
-/* ================= Feature Card Slide-Up Animation ================= */
 .feature-card {
   width: 350px;
   height: 455px;
@@ -43,19 +42,16 @@
   backdrop-filter: blur(10px);
   box-shadow: 0px 10px 25px rgba(0, 0, 0, 0.5);
 
-  /* START fully off-screen */
   opacity: 0;
-  transform: translateY(200px); /* start far below */
+  transform: translateY(200px);
   transition: transform 0.8s ease-out, opacity 0.8s ease-out;
 }
 
-/* POP-UP fully into place */
 .feature-card.animate {
   opacity: 1;
   transform: translateY(0);
 }
 
-/* Sequential animation delays */
 .feature-card:nth-child(1).animate {
   transition-delay: 0.2s;
 }
@@ -66,10 +62,7 @@
   transition-delay: 0.6s;
 }
 
-/* Hover effect */
-.feature-card:hover {
-  transform: translateY(-8px) scale(1.02);
-}
+
 
 .feature-card img {
   width: 100%;
@@ -77,14 +70,11 @@
   object-fit: cover;
   display: block;
   transition: 0.35s ease;
-  filter: brightness(85%);
 }
 
-.feature-card:hover img {
-  transform: scale(1.08);
-}
 
-/* ================= Feature Description Paragraph ================= */
+
+/* ================= Feature Description ================= */
 .feature-description {
   max-width: 1150px;
   margin: -40px auto 70px;
@@ -98,29 +88,29 @@
 /* ================= Timeline Layout ================= */
 .timeline-container {
   position: relative;
-  max-width: 1000px;
+  max-width: 1200px;
   margin: auto;
   display: flex;
   flex-direction: column;
-  gap: 60px;
+  gap: 80px;
 }
 
 .timeline-line {
   position: absolute;
   left: 50%;
   top: 0;
-  width: 3px;
+  width: 5px;
   height: 100%;
   transform: translateX(-50%);
   border-radius: 10px;
   background: linear-gradient(180deg, #0b0f2b, #1e3a8a, #1d9bf0, #27d9ff);
-  opacity: 0.8;
+  opacity: 0.9;
 }
 
 .timeline-item {
   position: relative;
   width: 50%;
-  padding: 0 30px;
+  padding: 0 40px;
 }
 
 .timeline-item.left {
@@ -135,80 +125,83 @@
 
 .timeline-box {
   background: linear-gradient(135deg, #0b0f2b, #1e3a8a, #1d9bf0, #27d9ff);
-  padding: 22px;
-  border-radius: 15px;
-  box-shadow: 0px 0px 20px rgba(39, 217, 255, 0.25);
-  transition: 0.3s ease;
+  padding: 30px;
+  border-radius: 18px;
+  box-shadow: 0px 0px 25px rgba(39, 217, 255, 0.35);
   backdrop-filter: blur(8px);
   opacity: 0;
-}
 
-/* Timeline Box Hover */
-.timeline-box:hover {
-  transform: translateY(-6px);
+  /* ✨ smoother + slower */
+  transition: transform 3s cubic-bezier(0.22, 1, 0.36, 1),
+              opacity 3s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 .timeline-box h3 {
-  font-size: 1.25rem;
+  font-size: 1.5rem;
   font-weight: 600;
-  margin-bottom: 5px;
+  margin-bottom: 8px;
   color: white;
 }
 
 .timeline-box p {
-  font-size: 0.95rem;
-  line-height: 1.5;
+  font-size: 1.05rem;
+  line-height: 1.6;
   color: rgba(255, 255, 255, 0.92);
 }
 
-/* Timeline Dot */
+/* ================= Dot ================= */
 .timeline-dot {
   position: absolute;
-  top: 25px;
-  width: 14px;
-  height: 14px;
+  top: 30px;
+  width: 18px;
+  height: 18px;
   background: #fff;
   border-radius: 50%;
-  border: 3px solid #27d9ff;
-  box-shadow: 0px 0px 15px rgba(39, 217, 255, 0.6);
+  border: 4px solid #27d9ff;
+  box-shadow: 0px 0px 18px rgba(39, 217, 255, 0.7);
 }
 
 .timeline-item.left .timeline-dot {
-  right: -7px;
+  right: -9px;
 }
 
 .timeline-item.right .timeline-dot {
-  left: -7px;
+  left: -9px;
 }
 
 /* ================= Scroll Animation ================= */
 .timeline-item.left .timeline-box {
-  transform: translateX(50px);
+  transform: translateX(60px);
 }
 
 .timeline-item.right .timeline-box {
-  transform: translateX(-50px);
+  transform: translateX(-60px);
 }
 
 .timeline-item.animate .timeline-box {
   opacity: 1;
   transform: translateX(0);
-  transition: all 1.2s ease-out;
 }
 
-/* ================= Responsive Mobile ================= */
+/* ✅ FIXED HOVER (keeps X transform + adds Y) */
+.timeline-item.animate .timeline-box:hover {
+  transform: translateX(0) translateY(-6px);
+  box-shadow: 0px 0px 35px rgba(39, 217, 255, 0.6);
+}
+
+/* ================= Responsive ================= */
 @media (max-width: 768px) {
   .experience-title {
     font-size: 2.3rem;
   }
 
   .timeline-line {
-    left: 20px;
+    left: 22px;
   }
 
   .timeline-item {
     width: 100%;
-    padding-left: 60px;
+    padding-left: 70px;
     padding-right: 20px;
     text-align: left;
     left: 0 !important;
@@ -220,7 +213,7 @@
   }
 
   .timeline-dot {
-    left: 13px !important;
+    left: 14px !important;
     right: auto !important;
   }
 
@@ -230,3 +223,4 @@
     height: 190px;
   }
 }
+

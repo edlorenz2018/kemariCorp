@@ -1,50 +1,48 @@
 import { useState, useEffect } from "react";
 import "./ViewWork.css";
 
-import img1 from "../../assets/feature1.png";
-import img2 from "../../assets/feature2.png";
-import img3 from "../../assets/feature3.png";
-import img4 from "../../assets/feature2.png";
+const ViewWork = ({ service, onBack }) => {
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  const [startIndex, setStartIndex] = useState(0);
+  const maxVisible = 4;
 
-const images = [img1, img2, img3, img4];
+  const images = service.images;
 
-const ViewWork = ({ onBack }) => {
-  const [bgImage, setBgImage] = useState(images[0]);
-
-  // 🔒 lock scroll when opened
   useEffect(() => {
     document.body.style.overflow = "hidden";
-
-    return () => {
-      document.body.style.overflow = "auto";
-    };
+    return () => (document.body.style.overflow = "auto");
   }, []);
 
+  const prevThumb = () => setStartIndex((prev) => Math.max(prev - 1, 0));
+  const nextThumb = () => setStartIndex((prev) => Math.min(prev + 1, images.length - maxVisible));
+
   return (
-    <div
-      className="viewwork-section"
-      style={{ backgroundImage: `url(${bgImage})` }}
-    >
+    <div className="viewwork-section" style={{ backgroundImage: `url(${images[currentImageIndex]})` }}>
       <button className="viewwork-back-arrow" onClick={onBack} />
 
       <div className="viewwork-text">
-        <h2>CCTV Installment</h2>
-        <p>
-          Explore our latest projects and discover how we bring innovative
-          solutions to life with quality and dedication.
-        </p>
+        <h2>{service.title}</h2>
+        <p>{service.description}</p>
       </div>
 
-      <div className="viewwork-thumbnail-carousel">
-        {images.map((img, index) => (
-          <div
-            key={index}
-            className={`viewwork-thumbnail ${bgImage === img ? "active" : ""}`}
-            style={{ backgroundImage: `url(${img})` }}
-            onClick={() => setBgImage(img)}
-          />
-        ))}
-      </div>
+      {images.length > 1 && (
+        <div className="viewwork-thumbnail-wrapper">
+          <button className="viewwork-thumbnail-nav left" onClick={prevThumb} disabled={startIndex === 0}>‹</button>
+
+          <div className="viewwork-thumbnail-carousel">
+            {images.slice(startIndex, startIndex + maxVisible).map((img, idx) => (
+              <div
+                key={idx}
+                className={`viewwork-thumbnail ${currentImageIndex === startIndex + idx ? "active" : ""}`}
+                style={{ backgroundImage: `url(${img})` }}
+                onClick={() => setCurrentImageIndex(startIndex + idx)}
+              />
+            ))}
+          </div>
+
+          <button className="viewwork-thumbnail-nav right" onClick={nextThumb} disabled={startIndex >= images.length - maxVisible}>›</button>
+        </div>
+      )}
     </div>
   );
 };

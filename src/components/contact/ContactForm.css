@@ -179,7 +179,7 @@ textarea {
 }
 
 .send-btn:hover {
-  background: #00a3ba;
+  background: linear-gradient(135deg, #0b0f2b, #1e3a8a, #1d9bf0, #27d9ff);
   transform: translateY(-2px);
 }
 
