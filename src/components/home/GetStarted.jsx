@@ -8,51 +8,59 @@ import img4 from "../../assets/feature2.png";
 
 const sections = [
   {
-    title: "CCTV Installation",
+    title: "CCTV System",
     desc: "Professional CCTV systems designed for security and reliability.",
     images: [img1, img2, img3, img4],
   },
   {
-    title: "Building Automation",
+    title: "Intercom System",
     desc: "Smart building solutions for modern infrastructure.",
     images: [img2, img3, img4, img1],
   },
   {
-    title: "Network Infrastructure",
+    title: "Structured Cabling – Data & Voice",
     desc: "Reliable wired and wireless network installations.",
     images: [img3, img1, img2, img4],
   },
   {
-    title: "Structured Cabling",
+    title: "CATV System",
     desc: "Organized cabling solutions for clean and efficient networks.",
     images: [img4, img2, img1, img3],
   },
   {
-    title: "Fire Alarm System",
+    title: "BGMPA / Paging System",
+    desc: "Reliable safety alarm systems designed for building protection.",
+    images: [img1, img4, img2, img3],
+  },
+  {
+    title: "Fire Alarm and Detection System",
+    desc: "Reliable safety alarm systems designed for building protection.",
+    images: [img1, img4, img2, img3],
+  },
+  {
+    title: "Access Point / Wi-Fi",
     desc: "Reliable safety alarm systems designed for building protection.",
     images: [img1, img4, img2, img3],
   },
 ];
 
-const GetStartedSection = ({ title, desc, images }) => {
+const GetStartedSection = ({ title, desc, images, onRequest }) => {
   const [bgImage, setBgImage] = useState(images[0]);
   const sectionRef = useRef(null);
   const [visible, setVisible] = useState(false);
 
-  // Animate when section enters viewport
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
           setVisible(true);
-          observer.disconnect(); // animate only once
+          observer.disconnect();
         }
       },
       { threshold: 0.3 }
     );
 
     if (sectionRef.current) observer.observe(sectionRef.current);
-
     return () => observer.disconnect();
   }, []);
 
@@ -65,7 +73,9 @@ const GetStartedSection = ({ title, desc, images }) => {
       <div className="section-text">
         <h2>{title}</h2>
         <p>{desc}</p>
-        <button className="section-btn">Book Now</button>
+        <button className="section-btn" onClick={() => onRequest(title)}>
+          Request now
+        </button>
       </div>
 
       <div className="getstarted-thumbnail-carousel">
@@ -84,6 +94,8 @@ const GetStartedSection = ({ title, desc, images }) => {
 
 const GetStarted = () => {
   const containerRef = useRef(null);
+  const [selectedService, setSelectedService] = useState(null);
+
   const [canScrollLeft, setCanScrollLeft] = useState(false);
   const [canScrollRight, setCanScrollRight] = useState(true);
 
@@ -91,7 +103,9 @@ const GetStarted = () => {
     const container = containerRef.current;
     if (!container) return;
     setCanScrollLeft(container.scrollLeft > 0);
-    setCanScrollRight(container.scrollLeft + container.offsetWidth < container.scrollWidth);
+    setCanScrollRight(
+      container.scrollLeft + container.offsetWidth < container.scrollWidth
+    );
   };
 
   useEffect(() => {
@@ -104,8 +118,6 @@ const GetStarted = () => {
 
     container.addEventListener("wheel", handleWheel, { passive: false });
     container.addEventListener("scroll", updateScrollButtons);
-
-    // initial check
     updateScrollButtons();
 
     return () => {
@@ -117,38 +129,57 @@ const GetStarted = () => {
   const scrollTo = (direction) => {
     const container = containerRef.current;
     const sectionWidth = container.offsetWidth;
-    if (direction === "left") {
-      container.scrollLeft -= sectionWidth;
-    } else {
-      container.scrollLeft += sectionWidth;
-    }
+    if (direction === "left") container.scrollLeft -= sectionWidth;
+    else container.scrollLeft += sectionWidth;
   };
 
   return (
-    <div className="getstarted-wrapper">
-      <div className="getstarted-container" ref={containerRef}>
-        {sections.map((section, index) => (
-          <GetStartedSection key={index} {...section} />
-        ))}
+    <>
+      <div className="getstarted-wrapper">
+        <div className="getstarted-container" ref={containerRef}>
+          {sections.map((section, index) => (
+            <GetStartedSection
+              key={index}
+              {...section}
+              onRequest={(service) => setSelectedService(service)}
+            />
+          ))}
+        </div>
+
+        <div className="getstarted-nav-outside">
+          <button onClick={() => scrollTo("left")} disabled={!canScrollLeft}>
+            &lt;
+          </button>
+          <button onClick={() => scrollTo("right")} disabled={!canScrollRight}>
+            &gt;
+          </button>
+        </div>
       </div>
 
-      <div className="getstarted-nav-outside">
-        <button
-          onClick={() => scrollTo("left")}
-          disabled={!canScrollLeft}
-          className={!canScrollLeft ? "disabled" : ""}
-        >
-          &lt;
-        </button>
-        <button
-          onClick={() => scrollTo("right")}
-          disabled={!canScrollRight}
-          className={!canScrollRight ? "disabled" : ""}
-        >
-          &gt;
-        </button>
-      </div>
-    </div>
+      {/* FULLSCREEN FORM */}
+      {selectedService && (
+        <div className="request-fullscreen">
+          {/* BACK BUTTON */}
+          <button
+            className="form-back-arrow"
+            onClick={() => setSelectedService(null)}
+          />
+
+          <div className="request-fullscreen-content">
+            <h2>Request Service</h2>
+
+            <form>
+              <input type="text" value={selectedService} readOnly />
+              <input type="text" placeholder="Full Name" required />
+              <input type="email" placeholder="Email Address" required />
+              <input type="tel" placeholder="Phone Number" required />
+              <textarea placeholder="Project details / message" rows="5" />
+              <button type="submit">Send Request</button>
+            </form>
+          </div>
+        </div>
+      )}
+    </>
   );
 };
 

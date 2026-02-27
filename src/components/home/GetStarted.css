@@ -271,3 +271,122 @@
   transform: translateY(0);
   opacity: 1;
 }
+
+/* ================= FULLSCREEN REQUEST FORM ================= */
+
+.request-fullscreen {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+
+  background: linear-gradient(
+    135deg,
+    #050816,
+    #0b0f2b 40%,
+    #0b1a3a 70%,
+    #051022
+  );
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  animation: fadeIn 0.35s ease;
+}
+
+.request-fullscreen-content {
+  width: 100%;
+  max-width: 600px;
+  padding: 50px 40px;
+  color: white;
+  position: relative;
+}
+
+.close-form {
+  position: absolute;
+  top: -10px;
+  right: 0;
+  font-size: 28px;
+  background: none;
+  border: none;
+  color: white;
+  cursor: pointer;
+  opacity: 0.7;
+}
+
+.close-form:hover {
+  opacity: 1;
+}
+
+.request-fullscreen-content h2 {
+  font-size: 32px;
+  margin-bottom: 10px;
+}
+
+.request-fullscreen-content form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-top: 20px;
+}
+
+.request-fullscreen-content input,
+.request-fullscreen-content textarea {
+  padding: 14px 16px;
+  border-radius: 12px;
+  border: none;
+  background: rgba(255,255,255,0.08);
+  color: white;
+  font-size: 15px;
+  backdrop-filter: blur(8px);
+}
+
+.request-fullscreen-content input:focus,
+.request-fullscreen-content textarea:focus {
+  outline: 1px solid #1d9bf0;
+}
+
+.request-fullscreen-content button[type="submit"] {
+  margin-top: 10px;
+  padding: 16px;
+  border-radius: 14px;
+  border: none;
+  background: linear-gradient(135deg, #1e3a8a, #1d9bf0);
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.25s;
+}
+
+.request-fullscreen-content button[type="submit"]:hover {
+  transform: translateY(-2px);
+}
+
+@keyframes fadeIn {
+  from { opacity: 0 }
+  to { opacity: 1 }
+}
+
+/* ===== FORM BACK ARROW ===== */
+.form-back-arrow {
+  position: absolute;
+  top: 0px;
+  right: 10px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  z-index: 10000;
+  font-size: 2.5rem;
+  color: white;
+  transition: all 0.3s ease;
+}
+
+.form-back-arrow::after {
+  content: "←";
+  display: inline-block;
+  transition: transform 0.3s ease;
+}
+
+.form-back-arrow:hover::after {
+  transform: translateX(-4px);
+}

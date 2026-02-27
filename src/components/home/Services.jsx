@@ -1,104 +1,127 @@
 import { useState, useEffect, useRef } from "react";
 import "./Services.css";
 
-import intercomImg from "../../assets/projectsimgs/crescentVille.png";
-import cctvImg from "../../assets/projectsimgs/llcdorm.png";
-import cablingImg from "../../assets/projectsimgs/llcAdmin.png";
-import catvImg from "../../assets/projectsimgs/northwood.png";
-import pagingImg from "../../assets/projectsimgs/jglTower.png";
-import fireImg from "../../assets/projectsimgs/unifiInstallation.png";
-import wifiImg from "../../assets/projectsimgs/1nitoTower.png";
+// main covers
+import crescentVille from "../../assets/projectsimgs/crescentVille.png";
+import llcdorm from "../../assets/projectsimgs/llcdorm.png";
+import llcAdmin from "../../assets/projectsimgs/llcAdmin.png";
+import northwood from "../../assets/projectsimgs/northwood.png";
+import jglTower from "../../assets/projectsimgs/jglTower.png";
+import unifiInstallation from "../../assets/projectsimgs/unifiInstallation.png";
+import nitoTower from "../../assets/projectsimgs/1nitoTower.png";
 
-// Add 6 images per service (replace with your actual images)
-import intercom2 from "../../assets/projectsimgs/crescentVille.png";
-import intercom3 from "../../assets/projectsimgs/crescentVille.png";
-import intercom4 from "../../assets/projectsimgs/crescentVille.png";
-import intercom5 from "../../assets/projectsimgs/crescentVille.png";
-import intercom6 from "../../assets/projectsimgs/crescentVille.png";
+import crescentVilles from "../../assets/projectsimgs/crescentVilles.png";
+import crescentVille2 from "../../assets/projectsimgs/crescentVille4.png";
+import crescentVille3 from "../../assets/projectsimgs/crescentVille1.png";
+import crescentVille4 from "../../assets/projectsimgs/crescentVille2.png";
+import crescentVille5 from "../../assets/projectsimgs/crescentVille3.png";
+import crescentVille6 from "../../assets/projectsimgs/crescentVille5.png";
 
-import cctv2 from "../../assets/projectsimgs/llcdorm.png";
-import cctv3 from "../../assets/projectsimgs/llcdorm.png";
-import cctv4 from "../../assets/projectsimgs/llcdorm.png";
-import cctv5 from "../../assets/projectsimgs/llcdorm.png";
-import cctv6 from "../../assets/projectsimgs/llcdorm.png";
+// Intercom gallery
+import llcdorm1 from "../../assets/projectsimgs/llcdorm1.png";
+import llcdorm2 from "../../assets/projectsimgs/llcdorm2.png";
+import llcdorm3 from "../../assets/projectsimgs/llcdorm5.png";
+import llcdorm4 from "../../assets/projectsimgs/llcdorm4.png";
+import llcdorm5 from "../../assets/projectsimgs/llcdorm3.png";
 
-import cablingImg2 from "../../assets/projectsimgs/llcAdmin.png";
-import cablingImg3 from "../../assets/projectsimgs/llcAdmin.png";
-import cablingImg4 from "../../assets/projectsimgs/llcAdmin.png";
-import cablingImg5 from "../../assets/projectsimgs/llcAdmin.png";
-import cablingImg6 from "../../assets/projectsimgs/llcAdmin.png";
+// Cabling gallery
+import llcAdmin1 from "../../assets/projectsimgs/llcAdmin.png";
+import llcAdmin2 from "../../assets/projectsimgs/llcAdmin.png";
+import llcAdmin3 from "../../assets/projectsimgs/llcAdmin.png";
+import llcAdmin4 from "../../assets/projectsimgs/llcAdmin.png";
+import llcAdmin5 from "../../assets/projectsimgs/llcAdmin.png";
+import llcAdmin6 from "../../assets/projectsimgs/llcAdmin.png";
+
+// CATV gallery
+import northwood1 from "../../assets/projectsimgs/northwood.png";
+import northwood2 from "../../assets/projectsimgs/northwood.png";
+import northwood3 from "../../assets/projectsimgs/northwood.png";
+import northwood4 from "../../assets/projectsimgs/northwood.png";
+import northwood5 from "../../assets/projectsimgs/northwood.png";
+import northwood6 from "../../assets/projectsimgs/northwood.png";
+
+// Paging gallery
+import jglTower1 from "../../assets/projectsimgs/jglTower.png";
+import jglTower2 from "../../assets/projectsimgs/jglTower.png";
+import jglTower3 from "../../assets/projectsimgs/jglTower.png";
+import jglTower4 from "../../assets/projectsimgs/jglTower.png";
+import jglTower5 from "../../assets/projectsimgs/jglTower.png";
+import jglTower6 from "../../assets/projectsimgs/jglTower.png";
+
+// Fire alarm gallery
+import unifiInstallation1 from "../../assets/projectsimgs/unifiInstallation.png";
+import unifiInstallation2 from "../../assets/projectsimgs/unifiInstallation.png";
+import unifiInstallation3 from "../../assets/projectsimgs/unifiInstallation.png";
+import unifiInstallation4 from "../../assets/projectsimgs/unifiInstallation.png";
+import unifiInstallation5 from "../../assets/projectsimgs/unifiInstallation.png";
+import unifiInstallation6 from "../../assets/projectsimgs/unifiInstallation.png";
+
+// Nito Tower gallery
+import nitoTower1 from "../../assets/projectsimgs/1nitoTower.png";
+import nitoTower2 from "../../assets/projectsimgs/1nitoTower.png";
+import nitoTower3 from "../../assets/projectsimgs/1nitoTower.png";
+import nitoTower4 from "../../assets/projectsimgs/1nitoTower.png";
+import nitoTower5 from "../../assets/projectsimgs/1nitoTower.png";
+import nitoTower6 from "../../assets/projectsimgs/1nitoTower.png";
 
 import ViewWork from "./ViewWork";
 
 const servicesData = [
   {
-    title: "Intercom System",
-    images: [intercomImg, intercom2, intercom3, intercom4, intercom5, intercom6],
-    description: "Intercom installations for residential and commercial buildings.",
+    title: "Crescent VILLE Minglanilla",
+    cover: crescentVille,
+    images: [
+      crescentVilles,
+      crescentVille2,
+      crescentVille3,
+      crescentVille4,
+      crescentVille5,
+      crescentVille6,
+    ],
+    description:
+      "Installation Inclusions: 7 units ColorVu Outdoor Bullet Camera, 8-channel DVR, 4TB HDD, 21-inch Monitor, and UPS.",
   },
   {
-    title: "CCTV System",
-    images: [cctvImg, cctv2, cctv3, cctv4, cctv5, cctv6],
+    title: "Cebu International College Dormitory Building",
+    cover: llcdorm,
+    images: [llcdorm1, llcdorm2, llcdorm3, llcdorm4, llcdorm5],
     description: "Security surveillance solutions with monitoring setup.",
   },
   {
     title: "Structured Cabling – Data & Voice",
-    images: [
-      cablingImg,
-      cablingImg2,
-      cablingImg3,
-      cablingImg4,
-      cablingImg5,
-      cablingImg6,
-    ],
+    cover: llcAdmin,
+    images: [llcAdmin1, llcAdmin2, llcAdmin3, llcAdmin4, llcAdmin5, llcAdmin6],
     description: "Organized network infrastructure for voice and data.",
   },
   {
     title: "CATV System",
-    images: [
-      catvImg,
-      catvImg,
-      catvImg,
-      catvImg,
-      catvImg,
-      catvImg,
-    ],
+    cover: northwood,
+    images: [northwood1, northwood2, northwood3, northwood4, northwood5, northwood6],
     description: "Cable TV distribution systems for large facilities.",
   },
   {
     title: "BGMPA / Paging System",
-    images: [
-      pagingImg,
-      pagingImg,
-      pagingImg,
-      pagingImg,
-      pagingImg,
-      pagingImg,
-    ],
+    cover: jglTower,
+    images: [jglTower1, jglTower2, jglTower3, jglTower4, jglTower5, jglTower6],
     description: "Public address and paging system integration.",
   },
   {
     title: "Fire Alarm and Detection System",
+    cover: unifiInstallation,
     images: [
-      fireImg,
-      fireImg,
-      fireImg,
-      fireImg,
-      fireImg,
-      fireImg,
+      unifiInstallation1,
+      unifiInstallation2,
+      unifiInstallation3,
+      unifiInstallation4,
+      unifiInstallation5,
+      unifiInstallation6,
     ],
     description: "Fire safety detection and alarm solutions.",
   },
   {
-    title: "Access Point / Wi-Fi",
-    images: [
-      wifiImg,
-      wifiImg,
-      wifiImg,
-      wifiImg,
-      wifiImg,
-      wifiImg,
-    ],
+    title: "1Nito Tower",
+    cover: nitoTower,
+    images: [nitoTower1, nitoTower2, nitoTower3, nitoTower4, nitoTower5, nitoTower6],
     description: "Wireless connectivity deployment and optimization.",
   },
 ];
@@ -110,8 +133,11 @@ function Services() {
   const [selectedService, setSelectedService] = useState(null);
   const sectionRef = useRef(null);
 
-  const prev = () => setIndex((prev) => (prev - 1 + servicesData.length) % servicesData.length);
-  const next = () => setIndex((prev) => (prev + 1) % servicesData.length);
+  const prev = () =>
+    setIndex((prev) => (prev - 1 + servicesData.length) % servicesData.length);
+
+  const next = () =>
+    setIndex((prev) => (prev + 1) % servicesData.length);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -152,17 +178,22 @@ function Services() {
             <div className="cards">
               {servicesData.map((service, i) => {
                 let offset = i - index;
-                if (offset > servicesData.length / 2) offset -= servicesData.length;
-                if (offset < -servicesData.length / 2) offset += servicesData.length;
+                if (offset > servicesData.length / 2)
+                  offset -= servicesData.length;
+                if (offset < -servicesData.length / 2)
+                  offset += servicesData.length;
 
                 const distance = 260;
                 let xPos = visible ? offset * distance : 0;
                 if (Math.abs(offset) === 2) xPos *= 0.85;
                 if (Math.abs(offset) === 3) xPos *= 0.7;
 
-                const scale = visible
-                  ? offset === 0 ? 1.25 : 1 - Math.abs(offset) * 0.08
-                  : 0.8;
+                const scale =
+                  visible
+                    ? offset === 0
+                      ? 1.25
+                      : 1 - Math.abs(offset) * 0.08
+                    : 0.8;
 
                 const zIndex = offset === 0 ? 20 : 10 - Math.abs(offset);
                 const opacity = Math.abs(offset) > 2 ? 0 : 1;
@@ -176,7 +207,7 @@ function Services() {
                       else setIndex(i);
                     }}
                     style={{
-                      backgroundImage: `url(${service.images[0]})`,
+                      backgroundImage: `url(${service.cover})`,
                       transform: `translateX(${xPos}px) scale(${scale})`,
                       zIndex,
                       opacity,
@@ -197,7 +228,10 @@ function Services() {
             <button className="services-nav right" onClick={next}>›</button>
           </div>
         ) : (
-          <ViewWork service={selectedService} onBack={() => setSelectedService(null)} />
+          <ViewWork
+            service={selectedService}
+            onBack={() => setSelectedService(null)}
+          />
         )}
       </div>
     </section>
