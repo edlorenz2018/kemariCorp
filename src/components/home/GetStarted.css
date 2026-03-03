@@ -212,7 +212,7 @@
 
   border-radius: 25px;
   border: none;
-  background: rgba(255, 255, 255, 0.15);
+  background: linear-gradient(135deg, #0b0f2b, #1e3a8a, #1d9bf0, #27d9ff);
   color: white;
   cursor: pointer;
   backdrop-filter: blur(10px);

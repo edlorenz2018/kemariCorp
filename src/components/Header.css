@@ -76,18 +76,31 @@ body {
   padding: 10px 22px;
   border-radius: 25px;
   border: none;
-  background: rgba(255, 255, 255, 0.15);
+  background: linear-gradient(135deg, #0b0f2b, #1e3a8a, #1d9bf0, #27d9ff);
   color: white;
   cursor: pointer;
   white-space: nowrap;
   position: relative; /* needed for ::after */
-  transition: background 0.3s ease, color 0.3s ease;
+    transition: all 0.3s ease;
+
 }
 
+.header-btn::after {
+  position: relative;
+  left: 0;
+  transition: left 0.3s ease;
+}
 
+.header-btn:hover::after {
+  left: 4px;
+}
 
 .header-btn:hover {
   background: linear-gradient(135deg, #0b0f2b, #1e3a8a, #1d9bf0, #27d9ff);
+  transform: translateX(2px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.35);
 }
+
+
 
 

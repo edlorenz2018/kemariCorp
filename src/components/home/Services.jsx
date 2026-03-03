@@ -18,10 +18,10 @@ import crescentVille5 from "../../assets/projectsimgs/crescentVille3.png";
 import crescentVille6 from "../../assets/projectsimgs/crescentVille5.png";
 
 // Intercom gallery
-import llcdorm1 from "../../assets/projectsimgs/llcdorm1.png";
-import llcdorm2 from "../../assets/projectsimgs/llcdorm2.png";
-import llcdorm3 from "../../assets/projectsimgs/llcdorm5.png";
-import llcdorm4 from "../../assets/projectsimgs/llcdorm4.png";
+import llcdorm1 from "../../assets/projectsimgs/llcdorm4.png";
+import llcdorm2 from "../../assets/projectsimgs/llcdorm5.png";
+import llcdorm3 from "../../assets/projectsimgs/llcdorm2.png";
+import llcdorm4 from "../../assets/projectsimgs/llcdorm1.png";
 import llcdorm5 from "../../assets/projectsimgs/llcdorm3.png";
 
 // Cabling gallery
@@ -57,7 +57,7 @@ import unifiInstallation5 from "../../assets/projectsimgs/unifiInstallation.png"
 import unifiInstallation6 from "../../assets/projectsimgs/unifiInstallation.png";
 
 // Nito Tower gallery
-import nitoTower1 from "../../assets/projectsimgs/1nitoTower.png";
+import nitoTower1 from "../../assets/projectsimgs/1nitoTower1.png";
 import nitoTower2 from "../../assets/projectsimgs/1nitoTower.png";
 import nitoTower3 from "../../assets/projectsimgs/1nitoTower.png";
 import nitoTower4 from "../../assets/projectsimgs/1nitoTower.png";

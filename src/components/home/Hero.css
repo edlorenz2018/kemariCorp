@@ -71,7 +71,7 @@
 
   border-radius: 25px;
   border: none;
-  background: rgba(255, 255, 255, 0.15);
+  background: linear-gradient(135deg, #0b0f2b, #1e3a8a, #1d9bf0, #27d9ff);
   color: white;
   cursor: pointer;
   backdrop-filter: blur(10px);
@@ -93,7 +93,7 @@
 
 .hero-btn:hover {
   background: linear-gradient(135deg, #0b0f2b, #1e3a8a, #1d9bf0, #27d9ff);
-  transform: translateY(-2px);
+  transform: translateX(3px);
   box-shadow: 0 12px 30px rgba(0, 0, 0, 0.35);
 }
 
