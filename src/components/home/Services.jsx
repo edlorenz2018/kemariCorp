@@ -5,7 +5,7 @@ import "./Services.css";
 import crescentVille from "../../assets/projectsimgs/crescentVille.png";
 import llcdorm from "../../assets/projectsimgs/llcdorm.png";
 import llcAdmin from "../../assets/projectsimgs/llcAdmin.png";
-import northwood from "../../assets/projectsimgs/northwood.png";
+import llcNursing from "../../assets/projectsimgs/llcNursing.png";
 import jglTower from "../../assets/projectsimgs/jglTower.png";
 import unifiInstallation from "../../assets/projectsimgs/unifiInstallation.png";
 import nitoTower from "../../assets/projectsimgs/1nitoTower.png";
@@ -25,48 +25,63 @@ import llcdorm4 from "../../assets/projectsimgs/llcdorm1.png";
 import llcdorm5 from "../../assets/projectsimgs/llcdorm3.png";
 
 // Cabling gallery
-import llcAdmin1 from "../../assets/projectsimgs/llcAdmin.png";
-import llcAdmin2 from "../../assets/projectsimgs/llcAdmin.png";
-import llcAdmin3 from "../../assets/projectsimgs/llcAdmin.png";
-import llcAdmin4 from "../../assets/projectsimgs/llcAdmin.png";
-import llcAdmin5 from "../../assets/projectsimgs/llcAdmin.png";
-import llcAdmin6 from "../../assets/projectsimgs/llcAdmin.png";
+import llcAdmin1 from "../../assets/projectsimgs/llcAdmin1.png";
+import llcAdmin2 from "../../assets/projectsimgs/llcAdmin2.png";
+import llcAdmin3 from "../../assets/projectsimgs/llcAdmin3.png";
+import llcAdmin4 from "../../assets/projectsimgs/llcAdmin4.png";
+import llcAdmin5 from "../../assets/projectsimgs/llcAdmin5.png";
 
-// CATV gallery
-import northwood1 from "../../assets/projectsimgs/northwood.png";
-import northwood2 from "../../assets/projectsimgs/northwood.png";
-import northwood3 from "../../assets/projectsimgs/northwood.png";
-import northwood4 from "../../assets/projectsimgs/northwood.png";
-import northwood5 from "../../assets/projectsimgs/northwood.png";
-import northwood6 from "../../assets/projectsimgs/northwood.png";
+// LLC Nursing gallery (formerly northwood)
+import llcNursing1 from "../../assets/projectsimgs/llcNursing1.png";
+import llcNursing2 from "../../assets/projectsimgs/llcNursing5.png";
+import llcNursing3 from "../../assets/projectsimgs/llcNursing2.png";
+import llcNursing4 from "../../assets/projectsimgs/llcNursing3.png";
+import llcNursing5 from "../../assets/projectsimgs/llcNursing4.png";
 
 // Paging gallery
-import jglTower1 from "../../assets/projectsimgs/jglTower.png";
-import jglTower2 from "../../assets/projectsimgs/jglTower.png";
-import jglTower3 from "../../assets/projectsimgs/jglTower.png";
-import jglTower4 from "../../assets/projectsimgs/jglTower.png";
-import jglTower5 from "../../assets/projectsimgs/jglTower.png";
-import jglTower6 from "../../assets/projectsimgs/jglTower.png";
+import jglTower1 from "../../assets/projectsimgs/jglTower1.png";
+import jglTower2 from "../../assets/projectsimgs/jglTower2.png";
+import jglTower3 from "../../assets/projectsimgs/jglTower3.png";
+import jglTower4 from "../../assets/projectsimgs/jglTower4.png";
+import jglTower5 from "../../assets/projectsimgs/jglTower5.png";
 
 // Fire alarm gallery
-import unifiInstallation1 from "../../assets/projectsimgs/unifiInstallation.png";
-import unifiInstallation2 from "../../assets/projectsimgs/unifiInstallation.png";
-import unifiInstallation3 from "../../assets/projectsimgs/unifiInstallation.png";
-import unifiInstallation4 from "../../assets/projectsimgs/unifiInstallation.png";
-import unifiInstallation5 from "../../assets/projectsimgs/unifiInstallation.png";
-import unifiInstallation6 from "../../assets/projectsimgs/unifiInstallation.png";
+import unifiInstallation1 from "../../assets/projectsimgs/unifiInstallation1.png";
+import unifiInstallation2 from "../../assets/projectsimgs/unifiInstallation3.png";
+import unifiInstallation3 from "../../assets/projectsimgs/unifiInstallation2.png";
+import unifiInstallation4 from "../../assets/projectsimgs/unifiInstallation4.png";
+import unifiInstallation5 from "../../assets/projectsimgs/unifiInstallation1.png";
 
 // Nito Tower gallery
 import nitoTower1 from "../../assets/projectsimgs/1nitoTower1.png";
-import nitoTower2 from "../../assets/projectsimgs/1nitoTower.png";
-import nitoTower3 from "../../assets/projectsimgs/1nitoTower.png";
-import nitoTower4 from "../../assets/projectsimgs/1nitoTower.png";
-import nitoTower5 from "../../assets/projectsimgs/1nitoTower.png";
-import nitoTower6 from "../../assets/projectsimgs/1nitoTower.png";
+import nitoTower2 from "../../assets/projectsimgs/1nitoTower4.png";
+import nitoTower3 from "../../assets/projectsimgs/1nitoTower2.png";
+import nitoTower4 from "../../assets/projectsimgs/1nitoTower3.png";
+import nitoTower5 from "../../assets/projectsimgs/1nitoTower1.png";
 
 import ViewWork from "./ViewWork";
 
 const servicesData = [
+   {
+    title: "Hotel One",
+    cover: unifiInstallation,
+    images: [
+      unifiInstallation1,
+      unifiInstallation2,
+      unifiInstallation3,
+      unifiInstallation4,
+      unifiInstallation5,
+    ],
+    description:
+      "Unifi Ubiquiti Booster Installation to enhance safety and high-security services.",
+  },
+  {
+    title: "JGL Tower",
+    cover: jglTower,
+    images: [jglTower1, jglTower2, jglTower3, jglTower4, jglTower5],
+    description:
+      "Structured Cabling and Installation of Devices - CCTV Cameras, Smoke Detectors and other systems at JGL Tower, Bacolod City, Negros Occidental.",
+  },
   {
     title: "Crescent VILLE Minglanilla",
     cover: crescentVille,
@@ -79,50 +94,41 @@ const servicesData = [
       crescentVille6,
     ],
     description:
-      "Installation Inclusions: 7 units ColorVu Outdoor Bullet Camera, 8-channel DVR, 4TB HDD, 21-inch Monitor, and UPS.",
+      "Completed Close-circuit television CCTV Camera Installation at Crescent VILLE Minglanilla. Installation Inclusions: 7 units ColorVu Outdoor Bullet Type Camera, 1 unit 8-channel Digital Video Recorder DVR, 1 unit 4-Terabyte Hard Disk Drive HDD, 1 21 inches LED Monitor, and 1 Uninterruptible Power Supply UPS.",
+  },
+  {
+    title: "1Nito Tower",
+    cover: nitoTower,
+    images: [nitoTower1, nitoTower2, nitoTower3, nitoTower4, nitoTower5],
+    description:
+      "Structured Cabling and Installation of Wireless Access Points at 1Nito Tower, Archbishop Reyes Ave, Cebu City.",
   },
   {
     title: "Cebu International College Dormitory Building",
     cover: llcdorm,
     images: [llcdorm1, llcdorm2, llcdorm3, llcdorm4, llcdorm5],
-    description: "Security surveillance solutions with monitoring setup.",
+    description:
+      "Structured Cabling and Installation of Devices - CCTV Cameras, Smoke Detectors and other systems at the Dormitory Building, Lapu-Lapu City.",
   },
   {
-    title: "Structured Cabling – Data & Voice",
+    title: "Cebu International College Admin Building",
     cover: llcAdmin,
-    images: [llcAdmin1, llcAdmin2, llcAdmin3, llcAdmin4, llcAdmin5, llcAdmin6],
-    description: "Organized network infrastructure for voice and data.",
+    images: [llcAdmin1, llcAdmin2, llcAdmin3, llcAdmin4, llcAdmin5],
+    description:
+      "Structured Cabling and Installation of Devices - CCTV Cameras, Smoke Detectors and other systems at the Admin Building, Lapu-Lapu City.",
   },
   {
-    title: "CATV System",
-    cover: northwood,
-    images: [northwood1, northwood2, northwood3, northwood4, northwood5, northwood6],
-    description: "Cable TV distribution systems for large facilities.",
-  },
-  {
-    title: "BGMPA / Paging System",
-    cover: jglTower,
-    images: [jglTower1, jglTower2, jglTower3, jglTower4, jglTower5, jglTower6],
-    description: "Public address and paging system integration.",
-  },
-  {
-    title: "Fire Alarm and Detection System",
-    cover: unifiInstallation,
+    title: "Cebu International College Nursing Building",
+    cover: llcNursing,
     images: [
-      unifiInstallation1,
-      unifiInstallation2,
-      unifiInstallation3,
-      unifiInstallation4,
-      unifiInstallation5,
-      unifiInstallation6,
+      llcNursing1,
+      llcNursing2,
+      llcNursing3,
+      llcNursing4,
+      llcNursing5,
+      
     ],
-    description: "Fire safety detection and alarm solutions.",
-  },
-  {
-    title: "1Nito Tower",
-    cover: nitoTower,
-    images: [nitoTower1, nitoTower2, nitoTower3, nitoTower4, nitoTower5, nitoTower6],
-    description: "Wireless connectivity deployment and optimization.",
+    description: "Structured Cabling and Installation of Devices - CCTV Cameras, Smoke Detectors and other systems at the Nursing Building, Lapu-Lapu City.",
   },
 ];
 
@@ -173,7 +179,9 @@ function Services() {
             onMouseEnter={() => setPaused(true)}
             onMouseLeave={() => setPaused(false)}
           >
-            <button className="services-nav left" onClick={prev}>‹</button>
+            <button className="services-nav left" onClick={prev}>
+              ‹
+            </button>
 
             <div className="cards">
               {servicesData.map((service, i) => {
@@ -188,12 +196,11 @@ function Services() {
                 if (Math.abs(offset) === 2) xPos *= 0.85;
                 if (Math.abs(offset) === 3) xPos *= 0.7;
 
-                const scale =
-                  visible
-                    ? offset === 0
-                      ? 1.25
-                      : 1 - Math.abs(offset) * 0.08
-                    : 0.8;
+                const scale = visible
+                  ? offset === 0
+                    ? 1.25
+                    : 1 - Math.abs(offset) * 0.08
+                  : 0.8;
 
                 const zIndex = offset === 0 ? 20 : 10 - Math.abs(offset);
                 const opacity = Math.abs(offset) > 2 ? 0 : 1;
@@ -225,7 +232,9 @@ function Services() {
               })}
             </div>
 
-            <button className="services-nav right" onClick={next}>›</button>
+            <button className="services-nav right" onClick={next}>
+              ›
+            </button>
           </div>
         ) : (
           <ViewWork
