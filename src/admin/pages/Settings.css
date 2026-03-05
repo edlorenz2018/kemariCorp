@@ -1,0 +1,35 @@
+.settings-page h2 {
+  margin-bottom: 20px;
+}
+
+.settings-card {
+  background: rgba(255, 255, 255, 0.15); /* semi-transparent */
+  padding: 20px;
+  border-radius: 16px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(10px); /* blur the background */
+  -webkit-backdrop-filter: blur(10px); /* for Safari */
+  border: 1px solid rgba(255, 255, 255, 0.25); /* subtle border for glass effect */
+  transition: all 0.3s ease;
+}
+
+.settings-card p {
+  color: #000000; /* light text looks better on glass */
+}
+
+.dark .settings-card p {
+  color: #ffffff; /* light text looks better on glass */
+}
+
+/* Optional hover effect */
+.settings-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .settings-card {
+    padding: 10px;
+  }
+}

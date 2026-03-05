@@ -1,0 +1,36 @@
+.topbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 20px;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.topbar h2 {
+  margin: 0;
+}
+
+.topbar button {
+  padding: 6px 12px;
+  border-radius: 8px;
+  border: none;
+  background: #6366f1;
+  color: white;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.topbar button:hover {
+  background: #4f46e5;
+}
+.darkmode-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #38bdf8; /* blue for visibility */
+  transition: transform 0.2s;
+}
+
+.darkmode-btn:hover {
+  transform: scale(1.2);
+}

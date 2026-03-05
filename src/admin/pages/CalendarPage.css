@@ -1,0 +1,99 @@
+/* ===== PAGE ===== */
+.calendar-page {
+  padding: 20px 0;
+}
+
+.calendar-page h2 {
+  margin-bottom: 25px;
+  font-weight: 600;
+  font-size: 24px;
+}
+
+/* ===== CARD ===== */
+.calendar-card {
+  background: #ffffff;
+  padding: 25px;
+  border-radius: 20px;
+  box-shadow: 0 10px 35px rgba(0, 0, 0, 0.06);
+  transition: 0.3s ease;
+}
+
+/* ===== FULLCALENDAR MODERN STYLE ===== */
+
+/* Remove default border */
+.fc {
+  border: none;
+  font-family: "Inter", sans-serif;
+}
+
+/* Toolbar */
+.fc-toolbar-title {
+  font-size: 20px;
+  font-weight: 600;
+}
+
+/* Buttons */
+.fc-button {
+  background: #2563eb !important;
+  border: none !important;
+  border-radius: 10px !important;
+  padding: 6px 14px !important;
+  transition: 0.2s ease !important;
+}
+
+.fc-button:hover {
+  background: #1d4ed8 !important;
+}
+
+/* Today highlight */
+.fc-day-today {
+  background: rgba(37, 99, 235, 0.08) !important;
+}
+
+/* Events */
+.fc-event {
+  background: #2563eb !important;
+  border: none !important;
+  border-radius: 8px !important;
+  padding: 3px 6px !important;
+  font-size: 12px;
+}
+
+/* Hover effect */
+.fc-event:hover {
+  opacity: 0.85;
+  cursor: pointer;
+}
+
+/* Day cell hover */
+.fc-daygrid-day:hover {
+  background: rgba(0, 0, 0, 0.03);
+  cursor: pointer;
+}
+
+/* ===== DARK MODE SUPPORT ===== */
+.dark .calendar-card {
+  background: #1e293b;
+}
+
+.dark .fc {
+  color: #f1f5f9;
+}
+
+.dark .fc-day-today {
+  background: rgba(37, 99, 235, 0.2) !important;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 900px) {
+  .calendar-card {
+    padding: 15px;
+  }
+
+  .fc-toolbar-title {
+    font-size: 16px;
+  }
+}
+.fc .fc-col-header-cell-cushion {
+  color: #1e293b;
+}
