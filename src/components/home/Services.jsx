@@ -170,7 +170,7 @@ function Services() {
     <section ref={sectionRef} className="services">
       <div className={`services-inner ${visible ? "show" : ""}`}>
         <h2 className="services-title">
-          Step Inside the Projects We've Created
+          THE PROJECTS WE'VE CREATED
         </h2>
 
         {!selectedService ? (
@@ -179,9 +179,7 @@ function Services() {
             onMouseEnter={() => setPaused(true)}
             onMouseLeave={() => setPaused(false)}
           >
-            <button className="services-nav left" onClick={prev}>
-              ‹
-            </button>
+            
 
             <div className="cards">
               {servicesData.map((service, i) => {
@@ -232,9 +230,7 @@ function Services() {
               })}
             </div>
 
-            <button className="services-nav right" onClick={next}>
-              ›
-            </button>
+            
           </div>
         ) : (
           <ViewWork

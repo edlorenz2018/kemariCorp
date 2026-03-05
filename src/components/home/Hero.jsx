@@ -17,7 +17,7 @@ function Hero() {
 
       <div className="hero-content">
         <div className="hero-title">
-          Start now to secure a smarter, safer, more connected tomorrow
+          START NOW TO SECURE A SMARTER, SAFER, MORE CONNECTED TOMORROW
         </div>
 
         <p className="hero-description">

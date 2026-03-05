@@ -74,14 +74,15 @@
 
 
 
-/* ================= Feature Description ================= */
 .feature-description {
   max-width: 1150px;
   margin: -40px auto 70px;
   text-align: center;
-  font-size: 1.05rem;
-  line-height: 1.8;
-  color: rgba(255, 255, 255, 0.85);
+  font-size: 0.95rem;
+  font-weight: 300; 
+  letter-spacing: 0.4px;       /* subtle elegance */
+  line-height: 1.9;            /* more breathing space */
+  color: rgba(255, 255, 255, 0.7); /* softer white */
   padding: 0 15px;
 }
 
@@ -138,15 +139,17 @@
 
 .timeline-box h3 {
   font-size: 1.5rem;
-  font-weight: 600;
+  font-weight: 500;
   margin-bottom: 8px;
   color: white;
 }
 
 .timeline-box p {
-  font-size: 1.05rem;
-  line-height: 1.6;
-  color: rgba(255, 255, 255, 0.92);
+  font-size: 0.95rem;
+  font-weight: 300;             
+  letter-spacing: 0.3px;
+  line-height: 1.8;
+  color: rgba(255, 255, 255, 0.85); 
 }
 
 /* ================= Dot ================= */

@@ -66,10 +66,10 @@ function Why() {
 
       {/* ================= Paragraph Below Feature Images ================= */}
       <p className="feature-description">
-        At Kemari, we specialize in creating reliable and efficient technology solutions that help organizations operate seamlessly. From advanced security setups to communication networks and structured cabling, our team ensures every installation is meticulously planned and executed. We aim to provide environments where systems are intuitive, stable, and supportive of day-to-day operations as well as future growth. With attention to detail and a commitment to quality, we deliver solutions that let your organization focus on what matters most, confident that your infrastructure is robust and dependable.
+        At Kemari, we specialize in creating reliable and efficient technology solutions that help organizations operate seamlessly. From advanced security setups to communication networks and structured cabling, our team ensures every installation is meticulously planned and executed. We aim to provide environments where systems are intuitive, stable, and supportive of day-to-day operations as well<br/> as future growth. With attention to detail and a commitment to quality, we deliver solutions that let your organization focus <br/>on what matters most, confident that your infrastructure is robust and dependable.
       </p>
 
-      <h2 className="experience-title">Why Choose Us?</h2>
+      <h2 className="experience-title">WHY CHOOSE US?</h2>
       <p className="experience-subtitle"></p>
 
       {/* ================= Timeline ================= */}
