@@ -233,11 +233,20 @@ function Services() {
             
           </div>
         ) : (
+        <div className="viewwork-overlay">
+          <button
+            className="close-viewwork"
+            onClick={() => setSelectedService(null)}
+          >
+            ✕
+          </button>
+
           <ViewWork
             service={selectedService}
             onBack={() => setSelectedService(null)}
           />
-        )}
+        </div>
+      )}
       </div>
     </section>
   );

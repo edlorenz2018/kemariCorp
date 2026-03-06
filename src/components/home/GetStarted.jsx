@@ -158,27 +158,35 @@ const GetStarted = () => {
 
       {/* FULLSCREEN FORM */}
       {selectedService && (
-        <div className="request-fullscreen">
-          {/* BACK BUTTON */}
-          <button
-            className="form-back-arrow"
-            onClick={() => setSelectedService(null)}
-          />
+  <div className="request-fullscreen">
 
-          <div className="request-fullscreen-content">
-            <h2>Request Service</h2>
+    <div className="request-fullscreen-content">
 
-            <form>
-              <input type="text" value={selectedService} readOnly />
-              <input type="text" placeholder="Full Name" required />
-              <input type="email" placeholder="Email Address" required />
-              <input type="tel" placeholder="Phone Number" required />
-              <textarea placeholder="Project details / message" rows="5" />
-              <button type="submit">Send Request</button>
-            </form>
-          </div>
-        </div>
-      )}
+      {/* BACK BUTTON */}
+      <button
+        className="form-back-btn"
+        onClick={() => setSelectedService(null)}
+      >
+        ✕
+      </button>
+
+      <h2>REQUEST SERVICE</h2>
+      <p className="form-subtext">
+        Tell us about your project and we'll get back to you.
+      </p>
+
+      <form>
+        <input type="text" value={selectedService} readOnly />
+        <input type="text" placeholder="Full Name" required />
+        <input type="email" placeholder="Email Address" required />
+        <input type="tel" placeholder="Phone Number" required />
+        <textarea placeholder="Project details / message" rows="5" />
+        <button type="submit">Send Request</button>
+      </form>
+
+    </div>
+  </div>
+)}
     </>
   );
 };

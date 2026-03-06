@@ -23,32 +23,44 @@
   top: 20px;
   right: 20px;
 
-  width: auto;
-  height: auto;
-  border-radius: 0; /* no circle */
-  background: transparent; /* no background */
-  border: none; /* no border */
+  background: none;
+  border: none;
+  outline: none;
+
   color: white;
-  font-size: 28px; /* bigger X */
+  font-size: 28px;
   font-weight: 600;
+
+  cursor: pointer;
+
+  opacity: 0.6;
+
   display: flex;
   justify-content: center;
   align-items: center;
 
-  opacity: 0.6;
-
-  cursor: pointer;
   transition: transform 0.25s ease, opacity 0.25s ease;
+
   z-index: 1000;
+
+  padding: 0;              /* remove default padding */
+  line-height: 1;          /* prevents box height */
 }
 
+/* remove browser focus box */
+.close-getstarted:focus,
+.close-getstarted:active {
+  outline: none;
+  background: none;
+  box-shadow: none;
+}
+
+/* hover effect */
 .close-getstarted:hover {
   transform: scale(1.2);
   opacity: 1;
-  color: white;
-  background: transparent; /* ensures no background on hover */
+  background: none;        /* ensure no background */
 }
-
 
 /* ============================= */
 /* WRAPPER FOR OUTSIDE BUTTONS   */
@@ -75,12 +87,13 @@
 .getstarted-nav-outside button {
   width: auto;
   height: auto;
-  border-radius: 0; /* removed circle */
-  background: transparent; /* removed background */
-  border: none; /* removed border */
+  border-radius: 0;
+  background: transparent;
+  border: none;
   color: white;
-  font-size: 28px; /* bigger arrows */
+  font-size: 28px;
   font-weight: 600;
+
   display: flex;
   justify-content: center;
   align-items: center;
@@ -90,7 +103,7 @@
 }
 
 .getstarted-nav-outside button:hover:not(.disabled) {
-  color: #00bcd4; /* optional hover color */
+  color: #00bcd4;
   transform: scale(1.2);
 }
 
@@ -120,10 +133,10 @@
   padding: 0;
 }
 
-/* hide scrollbar */
 .getstarted-container::-webkit-scrollbar {
   display: none;
 }
+
 .getstarted-container {
   -ms-overflow-style: none;
   scrollbar-width: none;
@@ -146,6 +159,7 @@
 
   padding: 50px;
   margin: 0 10px;
+
   box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
 
   scroll-snap-align: start;
@@ -156,36 +170,39 @@
   transition: all 0.3s ease;
 }
 
-/* dark gradient overlay inside rectangle */
+/* gradient overlay */
 .getstarted-section::before {
   content: "";
   position: absolute;
   inset: 0;
+
   background: linear-gradient(
     to top,
     rgba(0, 0, 0, 0.75),
     rgba(0, 0, 0, 0.15)
   );
+
   z-index: 0;
 }
 
 /* ============================= */
-/* TEXT INSIDE RECTANGLE          */
+/* TEXT INSIDE RECTANGLE */
 /* ============================= */
 .section-text {
   max-width: 500px;
   color: white;
   font-family: "Poppins", sans-serif;
+
   padding: 25px 30px;
   border-radius: 16px;
 
   transform: translate(0, 20px);
+
   position: relative;
   z-index: 2;
 
-  text-align: left; /* ✅ add this */
+  text-align: left;
 }
-
 
 .section-text h2 {
   font-size: 50px;
@@ -201,6 +218,12 @@
   line-height: 1.6;
 }
 
+.form-subtext{
+  color:#666;
+  font-size:14px;
+  margin-bottom:10px;
+}
+
 /* BUTTON */
 .section-btn {
   margin-top: 20px;
@@ -212,22 +235,30 @@
 
   border-radius: 25px;
   border: none;
-  background: linear-gradient(135deg, #0b0f2b, #1e3a8a, #1d9bf0, #27d9ff);
+
+  background: linear-gradient(
+    135deg,
+    #0b0f2b,
+    #1e3a8a,
+    #1d9bf0,
+    #27d9ff
+  );
+
   color: white;
   cursor: pointer;
+
   backdrop-filter: blur(10px);
 
   transition: all 0.3s ease;
 }
 
 .section-btn:hover {
-  background: linear-gradient(135deg, #0b0f2b, #1e3a8a, #1d9bf0, #27d9ff);
   transform: translateY(-2px);
-  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.35);
+  box-shadow: 0 12px 30px rgba(0,0,0,0.35);
 }
 
 /* ============================= */
-/* THUMBNAIL CAROUSEL            */
+/* THUMBNAIL CAROUSEL */
 /* ============================= */
 .getstarted-thumbnail-carousel {
   display: flex;
@@ -235,6 +266,7 @@
   align-items: flex-end;
 
   transform: translate(20px, 20px);
+
   position: relative;
   z-index: 2;
 }
@@ -245,9 +277,11 @@
 
   background-size: cover;
   background-position: center;
+
   border-radius: 14px;
 
   cursor: pointer;
+
   opacity: 0.7;
   border: 2px solid transparent;
 
@@ -265,27 +299,28 @@
 }
 
 /* ============================= */
-/* SLIDE-IN ANIMATION FOR SECTIONS*/
+/* SLIDE-IN ANIMATION */
 /* ============================= */
 .getstarted-section.slide-in {
   transform: translateY(0);
   opacity: 1;
 }
 
-/* ================= FULLSCREEN REQUEST FORM ================= */
-
+/* ============================= */
+/* FULLSCREEN REQUEST FORM */
+/* ============================= */
+/* ============================= */
+/* FULLSCREEN REQUEST FORM */
+/* ============================= */
 .request-fullscreen {
   position: fixed;
   inset: 0;
   z-index: 9999;
 
-  background: linear-gradient(
-    135deg,
-    #050816,
-    #0b0f2b 40%,
-    #0b1a3a 70%,
-    #051022
-  );
+  background: rgba(6, 11, 19, 0.45); /* semi transparent overlay */
+
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
 
   display: flex;
   justify-content: center;
@@ -294,99 +329,144 @@
   animation: fadeIn 0.35s ease;
 }
 
+/* GLASS CARD */
 .request-fullscreen-content {
   width: 100%;
-  max-width: 600px;
-  padding: 50px 40px;
-  color: white;
+  max-width: 520px;
+  max-height: 80vh;
+
+  padding: 35px 35px;
+
+  border-radius: 22px;
+
+  background: rgba(255, 255, 255, 0.65);
+
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+
+  border: 1px solid rgba(255,255,255,0.4);
+
+  box-shadow:
+    0 20px 50px rgba(0,0,0,0.15),
+    inset 0 1px 0 rgba(255,255,255,0.6);
+
+  color: #111;
+
   position: relative;
+
+  display: flex;
+  flex-direction: column;
 }
 
-.close-form {
-  position: absolute;
-  top: -10px;
-  right: 0;
-  font-size: 28px;
-  background: none;
-  border: none;
-  color: white;
-  cursor: pointer;
-  opacity: 0.7;
-}
-
-.close-form:hover {
-  opacity: 1;
-}
-
+/* TITLE */
 .request-fullscreen-content h2 {
-  font-size: 32px;
-  margin-bottom: 10px;
+  color: rgb(0, 0, 0);
+  font-size: 26px;
+  font-weight: 700;
+  margin-bottom: 4px;
 }
 
+/* FORM */
 .request-fullscreen-content form {
   display: flex;
   flex-direction: column;
-  gap: 16px;
-  margin-top: 20px;
+  gap: 12px;
+  margin-top: 18px;
 }
 
+/* INPUTS */
 .request-fullscreen-content input,
 .request-fullscreen-content textarea {
   padding: 14px 16px;
+
   border-radius: 12px;
-  border: none;
-  background: rgba(255,255,255,0.08);
-  color: white;
-  font-size: 15px;
-  backdrop-filter: blur(8px);
+
+  border: 1px solid rgba(0,0,0,0.08);
+
+  background: rgba(255,255,255,0.6);
+
+  font-size: 14px;
+  color: #111;
+
+  transition: all 0.25s ease;
 }
 
+/* TEXTAREA CONTROL */
+.request-fullscreen-content textarea {
+  resize: none;
+  min-height: 90px;
+  max-height: 120px;
+  overflow-y: auto;
+}
+
+/* INPUT FOCUS */
 .request-fullscreen-content input:focus,
 .request-fullscreen-content textarea:focus {
-  outline: 1px solid #1d9bf0;
+  outline: none;
+  border: 1px solid #1d9bf0;
+  box-shadow: 0 0 0 3px rgba(29,155,240,0.15);
 }
 
+/* SUBMIT BUTTON */
 .request-fullscreen-content button[type="submit"] {
   margin-top: 10px;
-  padding: 16px;
+
+  padding: 14px;
+
   border-radius: 14px;
   border: none;
-  background: linear-gradient(135deg, #1e3a8a, #1d9bf0);
-  color: white;
+
   font-weight: 600;
+  font-size: 15px;
+
+  color: white;
+
+  background: linear-gradient(
+    135deg,
+    #1e3a8a,
+    #1d9bf0,
+    #27d9ff
+  );
+
   cursor: pointer;
-  transition: 0.25s;
+
+  transition: all 0.25s ease;
 }
 
 .request-fullscreen-content button[type="submit"]:hover {
   transform: translateY(-2px);
+  box-shadow: 0 10px 25px rgba(29,155,240,0.35);
 }
 
+/* BACK BUTTON TOP RIGHT */
+.form-back-btn {
+  position: absolute;
+  top: 15px;
+  right: 18px;
+
+  background: transparent;
+  border: none;
+
+  font-size: 22px;
+  font-weight: 600;
+
+  color: #333;
+
+  cursor: pointer;
+
+  opacity: 0.6;
+
+  transition: all 0.25s ease;
+}
+
+.form-back-btn:hover {
+  opacity: 1;
+  transform: scale(1.15);
+}
+
+/* ANIMATION */
 @keyframes fadeIn {
   from { opacity: 0 }
   to { opacity: 1 }
 }
 
-/* ===== FORM BACK ARROW ===== */
-.form-back-arrow {
-  position: absolute;
-  top: 0px;
-  right: 10px;
-  background: none;
-  border: none;
-  cursor: pointer;
-  z-index: 10000;
-  font-size: 2.5rem;
-  color: white;
-  transition: all 0.3s ease;
-}
-
-.form-back-arrow::after {
-  content: "←";
-  display: inline-block;
-  transition: transform 0.3s ease;
-}
-
-.form-back-arrow:hover::after {
-  transform: translateX(-4px);
-}

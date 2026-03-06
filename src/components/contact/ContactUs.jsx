@@ -7,7 +7,7 @@ import bg2 from "../../assets/featuredimgs/highlights2.png";
 import bg3 from "../../assets/featuredimgs/highlights3.png"; 
 import bg4 from "../../assets/featuredimgs/highlights4.png"; 
 
-import companyLogo from "../../assets/kemarilogohero.png";
+import companyLogo from "../../assets/kemarilogohero1.png";
 
 function ContactUsHero() {
   const rawImages = [bg1, bg2, bg3, bg4];
